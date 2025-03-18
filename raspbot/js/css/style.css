@@ -1,0 +1,136 @@
+/* General Styles */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --accent-color: #00bfff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+#home {
+    background-color: #f8f9fa;
+    padding-top: 80px;
+}
+
+#home h1 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Feature Icons */
+.fas {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.fas:hover {
+    transform: translateY(-5px);
+}
+
+/* Cards */
+.card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Accordion */
+.accordion-button {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e9ecef;
+    color: var(--primary-color);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* QR Scanner */
+#scanner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    margin-top: 4rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    #scanner {
+        max-width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.section-title {
+    animation: fadeIn 1s ease-in;
+}
