@@ -10,6 +10,48 @@
     <link href="css/styles.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        #container3d {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            color: #666;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            z-index: 2;
+        }
+
+        #container3d canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+    <!-- Three.js y módulos -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
@@ -146,6 +188,30 @@
         </div>
     </section>
 
+    <!-- Sección Modelo 3D -->
+    <section id="modelo3d" class="modelo3d-section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>Modelo 3D Interactivo</h2>
+                <p class="lead">Explora nuestro DrawBot en 3D. Puedes rotar, hacer zoom y mover el modelo para ver todos sus detalles.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div id="container3d">
+                        <div class="loading3d">Cargando modelo 3D...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="text-muted">
+                    <i class="fas fa-mouse me-2"></i>Click y arrastra para rotar
+                    <span class="mx-3">|</span>
+                    <i class="fas fa-search-plus me-2"></i>Rueda del mouse para zoom
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -191,15 +257,6 @@
                         <li><a href="../drawbot/drawbot.php">DrawBot</a></li>
                     </ul>
                 </div>
-                <!-- En esta seccion estaria el boton saltarin del comenta qui que nos debria de mandar a un google form -->
-<!--                 <div class="col-md-4">
-                    <h5>Deja tu opinion</h5>
-                        <span>Nos gustaria saber tu opinion y saber que te gustaron de nuestros proyectos</span>
-                        <button id='coment' href="https://youtu.be/2p3-zkUFJJU?si=2t2o2rm_ZOWMEXZ-"">Comenta aqui</button>
-                    </div>
-                </div> -->
-
-                <!-- Agregar nuestras redes y mi linkedin 😊 -->
                 <div class="col-md-4">
                     <h5>Síguenos</h5>
                     <div class="social-links">
@@ -219,7 +276,116 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-   <!--  <script src="./js/main.js"></script> -->
+    
+    <!-- Modelo 3D -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        // Configuración básica
+        const container = document.getElementById('container3d');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        // Configurar cámara
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        // Configurar renderer
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1;
+
+        // Agregar canvas al contenedor
+        container.appendChild(renderer.domElement);
+
+        // Iluminación
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+        scene.add(ambientLight);
+        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight2.position.set(-5, -5, -5);
+        scene.add(directionalLight2);
+
+        // Controles
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Cargar modelo
+        const loader = new GLTFLoader();
+        console.log('Intentando cargar el modelo desde: 3D/scene.gltf');
+
+        loader.load(
+            '3D/scene.gltf',
+            function (gltf) {
+                console.log('Modelo cargado exitosamente');
+                const model = gltf.scene;
+
+                // Ajustar materiales
+                model.traverse((node) => {
+                    if (node.isMesh && node.material) {
+                        node.material.needsUpdate = true;
+                        node.material.side = THREE.DoubleSide;
+                    }
+                });
+
+                scene.add(model);
+
+                // Centrar y ajustar tamaño
+                const box = new THREE.Box3().setFromObject(model);
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const fov = camera.fov * (Math.PI / 180);
+                let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+                camera.position.z = cameraZ * 1.5;
+                
+                controls.target.copy(center);
+                controls.update();
+
+                // Ocultar mensaje de carga
+                const loadingElement = container.querySelector('.loading3d');
+                if (loadingElement) {
+                    loadingElement.style.display = 'none';
+                }
+            },
+            function (xhr) {
+                const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                console.log(percent + '% cargado');
+            },
+            function (error) {
+                console.error('Error al cargar el modelo:', error);
+                const loadingElement = container.querySelector('.loading3d');
+                if (loadingElement) {
+                    loadingElement.textContent = 'Error al cargar el modelo 3D';
+                }
+            }
+        );
+
+        // Animación
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Manejo de redimensionamiento
+        function onWindowResize() {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        window.addEventListener('resize', onWindowResize);
+        animate();
+    </script>
 </body>
 </html>

@@ -13,6 +13,8 @@ session_start();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="datateam/css/style.css" rel="stylesheet">
+
+    
 </head>
 <body>
     <!-- Navbar -->
@@ -154,6 +156,7 @@ session_start();
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -225,16 +228,7 @@ session_start();
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
+    
+    
 </body>
 </html>

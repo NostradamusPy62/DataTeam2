@@ -1,0 +1,11 @@
+Model Information:
+* title:	Brazuka Ball
+* source:	https://sketchfab.com/3d-models/brazuka-ball-0c4ab6e873fb472ebcc2b1b4eb0f1cbc
+* author:	danyelon (https://sketchfab.com/adelin)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Brazuka Ball" (https://sketchfab.com/3d-models/brazuka-ball-0c4ab6e873fb472ebcc2b1b4eb0f1cbc) by danyelon (https://sketchfab.com/adelin) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
