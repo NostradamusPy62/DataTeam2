@@ -221,5 +221,63 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
    <!--  <script src="./js/main.js"></script> -->
+     <script>
+     $document.addEventListener('DOMContentLoaded', function() {
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Scroll animations
+    const scrollElements = document.querySelectorAll('.appear-on-scroll');
+    
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+    };
+    
+    const displayScrollElement = (element) => {
+        element.classList.add('is-visible');
+    };
+    
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+    });
+    
+    // Initialize on page load
+    handleScrollAnimation();
+    
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('active');
+        } else {
+            backToTopButton.classList.remove('active');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
 </body>
 </html>
