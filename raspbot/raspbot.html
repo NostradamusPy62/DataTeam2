@@ -26,7 +26,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
             <i class="fab fa-raspberry-pi" title="Raspberry Pi"></i>
@@ -63,12 +63,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <h1 class="display-4 fw-bold">Raspbot</h1>
-                        <p class="lead">Un proyecto de robótica educativa basado en Raspberry Pi</p>
-                        <a href="#assembly" class="btn btn-primary btn-lg">Comenzar Ahora</a>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="images/hero-image.jpg" alt="Raspbot Hero" class="img-fluid rounded">
+                        <h1 class="display-4 fw-bold title-glow">Raspbot</h1>
+                        <p class="lead pop-in"> La Inteligencia Artificial en Movimiento 🚀</p>
                     </div>
                 </div>
             </div>
@@ -77,44 +73,61 @@
             <!-- About Section with card -->
         <section id="about" class="py-5 bg-light">
             <div class="container">
-                <h2 class="text-center mb-4">Sobre el Proyecto</h2>
+                <h2 class="text-center mb-4 fade-in">Sobre el Proyecto</h2>
+                
+                <!-- Tarjeta flip -->
                 <div class="row mb-4">
                     <div class="col-lg-10 mx-auto">
-                        <div class="about-card">
-                            <h3>RaspBot: Robótica Educativa Accesible</h3>
-                            <p class="lead">
-                                Raspbot es un <strong>robot móvil multiusos</strong> impulsado por <strong>inteligencia artificial</strong>, diseñado para procesar imágenes y detectar objetos en tiempo real mediante una <strong>Raspberry Pi 4</strong>. 
-                                Su avanzada tecnología le permite no solo desplazarse por control remoto, sino también <strong>mantener conversaciones con el usuario</strong>, adaptándose a diferentes roles según las necesidades.
-                            </p>
-                            <p class="lead">
-                                Gracias a su versatilidad, Raspbot puede actuar como un <strong>asistente educativo</strong>, un <strong>robot explorador</strong> o incluso un <strong>agente de monitoreo inteligente</strong>. 
-                                Su capacidad para interpretar el entorno y responder de manera autónoma lo convierte en una herramienta poderosa tanto para la educación como para la investigación en robótica e inteligencia artificial.
-                            </p>
-                            <div class="text-end">
-                                <a href="#features" class="btn btn-primary">Conocer características</a>
+                        <div class="flip-card-container">
+                            <div class="flip-card" id="flipCard">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <h3>RaspBot: Robótica Educativa Accesible</h3>
+                                        <p>
+                                            Raspbot es más que un simple robot: es un asistente inteligente multifuncional que revoluciona la interacción humano-máquina a través de la accesibilidad tecnológica. Basado en Raspberry Pi 4, este innovador dispositivo fusiona robótica avanzada con inteligencia artificial.
+                                        </p>
+                                        <p>
+                                            Su avanzada tecnología le permite no solo desplazarse por control remoto gracias a su diseño compacto, sino también mantener conversaciones con el usuario, adaptándose a diferentes roles según las necesidades.
+                                        </p>
+                                        <button class="flip-btn" onclick="voltearTarjeta()">Ver más <i class="fas fa-arrow-right"></i></button>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h3>Aplicaciones y Potencial</h3>
+                                        <p>Raspbot transforma la experiencia de aprendizaje e investigación con su versatilidad única, ofreciendo soluciones adaptables para múltiples sectores.</p>
+                                        <ul>
+                                            <li>Asistente educativo interactivo para programación, robótica e IA</li>
+                                            <li>Plataforma de investigación personalizable con sensores modulares</li>
+                                            <li>Sistema de monitoreo inteligente con reconocimiento en tiempo real</li>
+                                            <li>Compañero robótico programable para proyectos de innovación</li>
+                                        </ul>
+                                        <button class="flip-btn back-btn" onclick="voltearTarjeta()">Volver <i class="fas fa-arrow-left"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Características con íconos -->
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="row" id="about-row">
                             <div class="col-md-4">
-                                <div class="info-card text-center">
+                                <div class="info-card">
                                     <i class="fas fa-eye fa-3x text-primary mb-3"></i>
                                     <h3>Visión Inteligente</h3>
                                     <p>Equipado con un sistema de visión por computadora que le permite detectar objetos, reconocer rostros y analizar su entorno en tiempo real.</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="info-card text-center">
+                                <div class="info-card">
                                     <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
                                     <h3>Procesamiento Avanzado</h3>
                                     <p>Utiliza una Raspberry Pi 4 como núcleo, garantizando un rendimiento eficiente para el análisis de datos y el control de sus funciones.</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="info-card text-center">
+                                <div class="info-card">
                                     <i class="fas fa-comments fa-3x text-primary mb-3"></i>
                                     <h3>Interacción Natural</h3>
                                     <p>Capaz de mantener conversaciones con el usuario, responder preguntas y ejecutar comandos según el rol asignado.</p>
@@ -126,40 +139,37 @@
             </div>
         </section>
 
-            <!-- Assembly Section -->
-        <section id="assembly" class="py-5">
+            <!-- Evolution Section -->
+        <section id="evolution" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4 fade-in">Pasos para Armarlo</h2>
+                <h2 class="text-center mb-4 fade-in">Evolución del Proyecto</h2>
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
-                        <div id="stepsCarousel" class="carousel slide steps-carousel" data-bs-ride="carousel">
+                        <div id="evolutionCarousel" class="carousel slide evolution-carousel" data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Paso 1"></button>
-                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="1" aria-label="Paso 2"></button>
-                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="2" aria-label="Paso 3"></button>
-                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="3" aria-label="Paso 4"></button>
-                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="4" aria-label="Paso 5"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Etapa 1"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="1" aria-label="Etapa 2"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="2" aria-label="Etapa 3"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="3" aria-label="Etapa 4"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="4" aria-label="Etapa 5"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="images/step1.jpg" class="d-block w-100 rounded" alt="Paso 1">
+                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 1">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
-                                                <h3>Paso 1: Preparación</h3>
-                                                <p>Reúne todos los componentes necesarios para construir tu Raspbot. Asegúrate de tener a mano:</p>
-                                                <ul>
-                                                    <li>Raspberry Pi 4</li>
-                                                    <li>Chasis del robot</li>
-                                                    <li>Motores DC (x2)</li>
-                                                    <li>Controlador L298N</li>
-                                                    <li>Sensores varios</li>
-                                                    <li>Cables y conectores</li>
-                                                    <li>Batería portable</li>
-                                                </ul>
-                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                                <div class="card-header">
+                                                    <h1>Etapa 1: Conceptualización</h1>
+                                                </div>
+                                                <div class="card-content">
+                                                    <p>
+                                                        El proyecto RaspBot comenzó como una iniciativa para explorar el potencial educativo de la robótica accesible. En esta fase inicial, desarrollamos la idea de un robot controlado por Raspberry Pi que pudiera servir como plataforma educativa. Realizamos investigación de mercado, estudios de viabilidad y definimos los objetivos principales: crear un robot accesible económicamente, fácil de replicar y con capacidades de inteligencia artificial.
+                                                    </p>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -167,19 +177,19 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="images/step2.jpg" class="d-block w-100 rounded" alt="Paso 2">
+                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 2">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
-                                                <h3>Paso 2: Montaje del Chasis</h3>
-                                                <p>Ensambla el chasis del robot siguiendo estas instrucciones:</p>
-                                                <ol>
-                                                    <li>Une las piezas del chasis según el diagrama</li>
-                                                    <li>Instala los motores en sus soportes</li>
-                                                    <li>Coloca las ruedas y asegúralas</li>
-                                                    <li>Instala el soporte para la Raspberry Pi</li>
-                                                </ol>
-                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                                <div class="card-header">
+                                                    <h1>Etapa 2: Prototipo Inicial</h1>
+                                                </div>
+                                                <div class="card-content">
+                                                    <p>
+                                                        Desarrollamos nuestro primer prototipo funcional utilizando una Raspberry Pi 3, motores DC básicos y un chasis impreso en 3D. Esta versión contaba con capacidades de movimiento simple y detección de obstáculos mediante un sensor ultrasónico. Las primeras pruebas demostraron el potencial del proyecto, pero también revelaron limitaciones en cuanto a estabilidad y procesamiento que debíamos superar en las siguientes iteraciones.
+                                                    </p>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -187,19 +197,19 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="images/step3.jpg" class="d-block w-100 rounded" alt="Paso 3">
+                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 3">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
-                                                <h3>Paso 3: Conexiones Eléctricas</h3>
-                                                <p>Realiza todas las conexiones siguiendo el esquema eléctrico:</p>
-                                                <ol>
-                                                    <li>Conecta el controlador L298N a la Raspberry Pi</li>
-                                                    <li>Conecta los motores al controlador</li>
-                                                    <li>Instala y conecta los sensores</li>
-                                                    <li>Verifica todas las conexiones antes de encender</li>
-                                                </ol>
-                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                                <div class="card-header">
+                                                    <h1>Etapa 3: Mejora del Hardware</h1>
+                                                </div>
+                                                <div class="card-content">
+                                                    <p>
+                                                        Actualizamos nuestro prototipo con una Raspberry Pi 4 que ofreció mayor potencia de procesamiento. Mejoramos el chasis para mayor estabilidad y añadimos sensores adicionales: cámara HD, sensor de temperatura y micrófono. Implementamos un sistema de control de motores más preciso con el controlador L298N y optimizamos el consumo de energía mediante una batería recargable dedicada, logrando hasta 3 horas de autonomía en uso continuo.
+                                                    </p>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -207,19 +217,19 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="images/step4.jpg" class="d-block w-100 rounded" alt="Paso 4">
+                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 4">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
-                                                <h3>Paso 4: Configuración del Software</h3>
-                                                <p>Configura el software en tu Raspberry Pi:</p>
-                                                <ol>
-                                                    <li>Instala Raspberry Pi OS</li>
-                                                    <li>Configura la conexión Wi-Fi</li>
-                                                    <li>Instala las bibliotecas necesarias (RPi.GPIO, etc.)</li>
-                                                    <li>Descarga el código fuente del Raspbot</li>
-                                                </ol>
-                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                                <div class="card-header">
+                                                    <h1>Etapa 4: Desarrollo de Software</h1>
+                                                </div>
+                                                <div class="card-content">
+                                                    <p>
+                                                        Implementamos algoritmos de visión por computadora utilizando OpenCV para detección de objetos y reconocimiento facial. Desarrollamos una interfaz de control remoto accesible a través de navegador web. Integramos modelos de inteligencia artificial pre-entrenados para permitir el reconocimiento de voz y la interacción natural. Creamos una plataforma de software modular que facilitó la adición de nuevas funcionalidades.
+                                                    </p>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -227,29 +237,29 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="images/step5.jpg" class="d-block w-100 rounded" alt="Paso 5">
+                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 5">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
-                                                <h3>Paso 5: Pruebas y Ajustes</h3>
-                                                <p>Realiza pruebas para verificar el funcionamiento:</p>
-                                                <ol>
-                                                    <li>Prueba de motores y movimiento</li>
-                                                    <li>Calibración de sensores</li>
-                                                    <li>Prueba de evitación de obstáculos</li>
-                                                    <li>Ajustes finales de rendimiento</li>
-                                                </ol>
-                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                                <div class="card-header">
+                                                    <h1>Etapa 5: Implementación Educativa</h1>
+                                                </div>
+                                                <div class="card-content">
+                                                    <p>
+                                                        Desarrollamos materiales didácticos completos: manuales de construcción, guías de programación y actividades educativas. Implementamos el RaspBot en entornos educativos locales para validar su efectividad como herramienta de aprendizaje. Recibimos retroalimentación de estudiantes y docentes que nos permitió refinar el proyecto. Actualmente estamos expandiendo el alcance mediante colaboraciones con instituciones educativas.
+                                                    </p>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#stepsCarousel" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#evolutionCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Anterior</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#stepsCarousel" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#evolutionCarousel" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Siguiente</span>
                             </button>
@@ -291,64 +301,65 @@
 
     <!-- Documentation Section -->
     <section id="documentation" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-4">Documentación</h2>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="accordion" id="docsAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hardware">
-                                        Hardware y Esquemas Eléctricos
-                                    </button>
-                                </h2>
-                                <div id="hardware" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        <h4>Componentes Principales</h4>
-                                        <ul class="list-group mb-3">
-                                            <li class="list-group-item">
-                                                <h5>Raspberry Pi 4</h5>
-                                                <p>Procesador quad-core de 1.5GHz, 4GB RAM</p>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <h5>Kit de Sensores</h5>
-                                                <ul>
-                                                    <li>Sensor de ultrasonido HC-SR04</li>
-                                                    <li>Sensor de temperatura DHT11</li>
-                                                    <li>Sensor de luz LDR</li>
-                                                </ul>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <h5>Motores y Control</h5>
-                                                <ul>
-                                                    <li>Motores DC con encoder</li>
-                                                    <li>Controlador L298N</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <h4>Esquemas Eléctricos</h4>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <img src="images/wiring-diagram.png" class="img-fluid rounded" alt="Diagrama de Conexiones">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Diagrama detallado de las conexiones entre los componentes del Raspbot.</p>
-                                                <a href="docs/hardware.pdf" class="btn btn-outline-primary">Descargar PDF</a>
-                                            </div>
+        <div class="container">
+            <h3 class="text-center mb-4 fade-in">Documentación</h3>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="docsAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hardware" aria-expanded="false" aria-controls="hardware">
+                                    <span>Hardware y Esquemas Eléctricos</span>
+                                </button>
+                            </h3>
+                            <div id="hardware" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#docsAccordion">
+                                <div class="accordion-body">
+                                    <h4>Componentes Principales</h4>
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item">
+                                            <h5>Raspberry Pi 4</h5>
+                                            <p>Procesador quad-core de 1.5GHz, 4GB RAM</p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h5>Kit de Sensores</h5>
+                                            <ul>
+                                                <li>Sensor de ultrasonido HC-SR04</li>
+                                                <li>Sensor de temperatura DHT11</li>
+                                                <li>Sensor de luz LDR</li>
+                                            </ul>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h5>Motores y Control</h5>
+                                            <ul>
+                                                <li>Motores DC con encoder</li>
+                                                <li>Controlador L298N</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h4>Esquemas Eléctricos</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/wiring-diagram.png" class="img-fluid rounded shadow-sm" alt="Diagrama de Conexiones">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Diagrama detallado de las conexiones entre los componentes del Raspbot.</p>
+                                            <a href="docs/hardware.pdf" class="btn btn-outline-primary">Descargar PDF</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#software">
-                                        Software y Código Fuente
-                                    </button>
-                                </h2>
-                                <div id="software" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        <h4>Estructura del Proyecto</h4>
-                                        <pre class="mb-3">
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#software" aria-expanded="false" aria-controls="software">
+                                    <span>Software y Código Fuente</span>
+                                </button>
+                            </h3>
+                            <div id="software" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#docsAccordion">
+                                <div class="accordion-body">
+                                    <h4>Estructura del Proyecto</h4>
+                                    <div class="bg-light p-3 rounded mb-3">
+                                        <pre class="mb-0">
 raspbot/
 ├── src/
 │   ├── main.py          # Archivo principal
@@ -356,25 +367,26 @@ raspbot/
 │   ├── motors/          # Control de motores
 │   └── utils/           # Utilidades
 ├── docs/               # Documentación
-└── tests/              # Pruebas unitarias
-                                        </pre>
-                                        <h4>Requisitos de Software</h4>
-                                        <ul class="list-group mb-3">
-                                            <li class="list-group-item">
-                                                <h5>Python 3.9+</h5>
-                                                <p>Interprete de Python</p>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <h5>Bibliotecas</h5>
-                                                <ul>
-                                                    <li>RPi.GPIO</li>
-                                                    <li>Adafruit_DHT</li>
-                                                    <li>opencv-python</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <h4>Ejemplo de Código</h4>
-                                        <pre class="mb-3">
+└── tests/              # Pruebas unitarias</pre>
+                                    </div>
+                                    <h4>Requisitos de Software</h4>
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item">
+                                            <h5>Python 3.9+</h5>
+                                            <p>Intérprete de Python</p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h5>Bibliotecas</h5>
+                                            <ul>
+                                                <li>RPi.GPIO</li>
+                                                <li>Adafruit_DHT</li>
+                                                <li>opencv-python</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h4>Ejemplo de Código</h4>
+                                    <div class="bg-light p-3 rounded mb-3">
+                                        <pre class="mb-0">
 from raspbot.sensors import UltrasonicSensor
 from raspbot.motors import MotorController
 
@@ -389,17 +401,17 @@ class Raspbot:
             self.motor.stop()
             self.motor.turn_left()
         else:
-            self.motor.forward()
-                                        </pre>
-                                        <a href="https://github.com/raspbot/project" class="btn btn-outline-primary">Ver Repositorio</a>
+            self.motor.forward()</pre>
                                     </div>
+                                    <a href="https://github.com/raspbot/project" class="btn btn-outline-primary">Ver Repositorio</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -429,7 +441,7 @@ class Raspbot:
                     <ul class="list-unstyled">
                         <li><a href="#home"><i class="fas fa-angle-right me-2"></i>Inicio</a></li>
                         <li><a href="#about"><i class="fas fa-angle-right me-2"></i>Sobre el Proyecto</a></li>
-                        <li><a href="#assembly"><i class="fas fa-angle-right me-2"></i>Pasos de Armado</a></li>
+                        <li><a href="#evolution"><i class="fas fa-angle-right me-2"></i>Evolución del Proyecto</a></li>
                         <li><a href="#documentation"><i class="fas fa-angle-right me-2"></i>Documentación</a></li>
                     </ul>
                 </div>
@@ -497,12 +509,11 @@ class Raspbot:
         // Cargar modelo
         const loader = new GLTFLoader();
         const modelPath = '3D/scene.gltf'; // Cambiado para usar la nueva ruta desde la raíz
-        console.log('Intentando cargar el modelo desde:', window.location.href, modelPath);
 
         loader.load(
             modelPath,
             function (gltf) {
-                console.log('Modelo cargado exitosamente');
+              
                 const model = gltf.scene;
 
                 // Ajustar materiales
@@ -535,7 +546,6 @@ class Raspbot:
             },
             function (xhr) {
                 const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
-                console.log(percent + '% cargado');
             },
             function (error) {
                 console.error('Error al cargar el modelo:', error);
@@ -563,5 +573,12 @@ class Raspbot:
         window.addEventListener('resize', onWindowResize);
         animate();
         </script>
+
+<script>
+// Función simple para girar la tarjeta
+function voltearTarjeta() {
+    document.getElementById('flipCard').classList.toggle('flipped');
+}
+</script>
 </body>
 </html>
