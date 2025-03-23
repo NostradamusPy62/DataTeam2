@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,39 +9,9 @@ session_start();
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="datateam/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        #container3d {
-            width: 100%;
-            height: 500px;
-            position: relative;
-            background: #f8f9fa;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .loading3d {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.2em;
-            color: #666;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            z-index: 2;
-        }
-
-        #container3d canvas {
-            display: block;
-            width: 100% !important;
-            height: 100% !important;
-        }
-    </style>
+ 
 
     <!-- Three.js y módulos -->
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -82,7 +49,7 @@ session_start();
                         <a class="nav-link" href="#docs">Documentación</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Nosotros</a>
+                        <a class="nav-link" href="../index.html">Nosotros</a>
                     </li>
                 </ul>
             </div>
@@ -107,28 +74,51 @@ session_start();
             </div>
         </section>
 
-            <!-- About Section -->
+            <!-- About Section with card -->
         <section id="about" class="py-5 bg-light">
             <div class="container">
                 <h2 class="text-center mb-4">Sobre el Proyecto</h2>
+                <div class="row mb-4">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="about-card">
+                            <h3>RaspBot: Robótica Educativa Accesible</h3>
+                            <p class="lead">
+                                Raspbot es un <strong>robot móvil multiusos</strong> impulsado por <strong>inteligencia artificial</strong>, diseñado para procesar imágenes y detectar objetos en tiempo real mediante una <strong>Raspberry Pi 4</strong>. 
+                                Su avanzada tecnología le permite no solo desplazarse por control remoto, sino también <strong>mantener conversaciones con el usuario</strong>, adaptándose a diferentes roles según las necesidades.
+                            </p>
+                            <p class="lead">
+                                Gracias a su versatilidad, Raspbot puede actuar como un <strong>asistente educativo</strong>, un <strong>robot explorador</strong> o incluso un <strong>agente de monitoreo inteligente</strong>. 
+                                Su capacidad para interpretar el entorno y responder de manera autónoma lo convierte en una herramienta poderosa tanto para la educación como para la investigación en robótica e inteligencia artificial.
+                            </p>
+                            <div class="text-end">
+                                <a href="#features" class="btn btn-primary">Conocer características</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <p class="lead">Raspbot es un proyecto educativo que combina la programación, la electrónica y la robótica utilizando Raspberry Pi como plataforma central. Diseñado para estudiantes y entusiastas, Raspbot ofrece una experiencia práctica y divertida en el mundo de la robótica.</p>
-                        <div class="row mt-4">
+                        <div class="row" id="about-row">
                             <div class="col-md-4">
-                                <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
-                                <h3>Hardware Moderno</h3>
-                                <p>Basado en Raspberry Pi y componentes de alta calidad.</p>
+                                <div class="info-card text-center">
+                                    <i class="fas fa-eye fa-3x text-primary mb-3"></i>
+                                    <h3>Visión Inteligente</h3>
+                                    <p>Equipado con un sistema de visión por computadora que le permite detectar objetos, reconocer rostros y analizar su entorno en tiempo real.</p>
+                                </div>
                             </div>
                             <div class="col-md-4">
-                                <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                                <h3>Programación Fácil</h3>
-                                <p>Código abierto y documentación detallada.</p>
+                                <div class="info-card text-center">
+                                    <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                                    <h3>Procesamiento Avanzado</h3>
+                                    <p>Utiliza una Raspberry Pi 4 como núcleo, garantizando un rendimiento eficiente para el análisis de datos y el control de sus funciones.</p>
+                                </div>
                             </div>
                             <div class="col-md-4">
-                                <i class="fas fa-robot fa-3x text-primary mb-3"></i>
-                                <h3>Proyectos Prácticos</h3>
-                                <p>Desde principiante hasta avanzado.</p>
+                                <div class="info-card text-center">
+                                    <i class="fas fa-comments fa-3x text-primary mb-3"></i>
+                                    <h3>Interacción Natural</h3>
+                                    <p>Capaz de mantener conversaciones con el usuario, responder preguntas y ejecutar comandos según el rol asignado.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -139,40 +129,130 @@ session_start();
             <!-- Assembly Section -->
         <section id="assembly" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4">Pasos para Armarlo</h2>
+                <h2 class="text-center mb-4 fade-in">Pasos para Armarlo</h2>
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
-                        <div class="row">
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <img src="images/step1.jpg" class="card-img-top" alt="Paso 1">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Paso 1: Preparación</h5>
-                                        <p class="card-text">Lista de componentes y herramientas necesarias.</p>
-                                        <a href="#" class="btn btn-primary">Ver Detalles</a>
+                        <div id="stepsCarousel" class="carousel slide steps-carousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Paso 1"></button>
+                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="1" aria-label="Paso 2"></button>
+                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="2" aria-label="Paso 3"></button>
+                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="3" aria-label="Paso 4"></button>
+                                <button type="button" data-bs-target="#stepsCarousel" data-bs-slide-to="4" aria-label="Paso 5"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/step1.jpg" class="d-block w-100 rounded" alt="Paso 1">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <h3>Paso 1: Preparación</h3>
+                                                <p>Reúne todos los componentes necesarios para construir tu Raspbot. Asegúrate de tener a mano:</p>
+                                                <ul>
+                                                    <li>Raspberry Pi 4</li>
+                                                    <li>Chasis del robot</li>
+                                                    <li>Motores DC (x2)</li>
+                                                    <li>Controlador L298N</li>
+                                                    <li>Sensores varios</li>
+                                                    <li>Cables y conectores</li>
+                                                    <li>Batería portable</li>
+                                                </ul>
+                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/step2.jpg" class="d-block w-100 rounded" alt="Paso 2">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <h3>Paso 2: Montaje del Chasis</h3>
+                                                <p>Ensambla el chasis del robot siguiendo estas instrucciones:</p>
+                                                <ol>
+                                                    <li>Une las piezas del chasis según el diagrama</li>
+                                                    <li>Instala los motores en sus soportes</li>
+                                                    <li>Coloca las ruedas y asegúralas</li>
+                                                    <li>Instala el soporte para la Raspberry Pi</li>
+                                                </ol>
+                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/step3.jpg" class="d-block w-100 rounded" alt="Paso 3">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <h3>Paso 3: Conexiones Eléctricas</h3>
+                                                <p>Realiza todas las conexiones siguiendo el esquema eléctrico:</p>
+                                                <ol>
+                                                    <li>Conecta el controlador L298N a la Raspberry Pi</li>
+                                                    <li>Conecta los motores al controlador</li>
+                                                    <li>Instala y conecta los sensores</li>
+                                                    <li>Verifica todas las conexiones antes de encender</li>
+                                                </ol>
+                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/step4.jpg" class="d-block w-100 rounded" alt="Paso 4">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <h3>Paso 4: Configuración del Software</h3>
+                                                <p>Configura el software en tu Raspberry Pi:</p>
+                                                <ol>
+                                                    <li>Instala Raspberry Pi OS</li>
+                                                    <li>Configura la conexión Wi-Fi</li>
+                                                    <li>Instala las bibliotecas necesarias (RPi.GPIO, etc.)</li>
+                                                    <li>Descarga el código fuente del Raspbot</li>
+                                                </ol>
+                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/step5.jpg" class="d-block w-100 rounded" alt="Paso 5">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <h3>Paso 5: Pruebas y Ajustes</h3>
+                                                <p>Realiza pruebas para verificar el funcionamiento:</p>
+                                                <ol>
+                                                    <li>Prueba de motores y movimiento</li>
+                                                    <li>Calibración de sensores</li>
+                                                    <li>Prueba de evitación de obstáculos</li>
+                                                    <li>Ajustes finales de rendimiento</li>
+                                                </ol>
+                                                <button class="btn btn-primary mt-2">Ver detalles completos</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <img src="images/step2.jpg" class="card-img-top" alt="Paso 2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Paso 2: Montaje</h5>
-                                        <p class="card-text">Instrucciones paso a paso para el ensamblaje.</p>
-                                        <a href="#" class="btn btn-primary">Ver Detalles</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <img src="images/step3.jpg" class="card-img-top" alt="Paso 3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Paso 3: Programación</h5>
-                                        <p class="card-text">Configuración del sistema y programación básica.</p>
-                                        <a href="#" class="btn btn-primary">Ver Detalles</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#stepsCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#stepsCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -182,46 +262,29 @@ session_start();
                 <!-- Features Section -->
         <section id="features" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4">Características</h2>
-                <!-- Modelo 3D -->
-                <div class="row justify-content-center mb-5">
-                    <div class="col-md-10">
-                        <div class="feature-card">
-                            <h3 class="text-center mb-3">Modelo 3D del Robot</h3>
+                <h2 class="text-center mb-4 fade-in">Características</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-md-12 mb-4">
+                        <div class="about-card">
+                            <h3 class="mb-3">Modelo de RaspBot</h3>
+                            <p>El RaspBot es un robot movil con inteligencia artificial diseñado de la siguiente manera:</p>
+                            <ul>
+                                <li><strong>Programación en Python</strong> - Utiliza el lenguaje de programacion mas popular para la inteligencia artificial</li>
+                                <li><strong>Procesamiento sensorial</strong> - A traves de la camara y el microfono es capaz de detectar objetos y mantener una conversacion con el usuario</li>
+                                <li><strong>Control de motores</strong> - Movimiento preciso y navegación</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="model-container">
                             <div id="container3d">
                                 <div class="loading3d">Cargando modelo 3D...</div>
                             </div>
-                            <p class="text-center mt-3">Explora el diseño 3D de nuestro robot. Puedes rotarlo, hacer zoom y ver todos sus detalles.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Contacto</h2>
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Mensaje" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -235,11 +298,11 @@ session_start();
                         <div class="accordion" id="docsAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hardware">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hardware">
                                         Hardware y Esquemas Eléctricos
                                     </button>
                                 </h2>
-                                <div id="hardware" class="accordion-collapse collapse show">
+                                <div id="hardware" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                         <h4>Componentes Principales</h4>
                                         <ul class="list-group mb-3">
@@ -332,18 +395,6 @@ class Raspbot:
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projects">
-                                        Proyectos y Ejemplos
-                                    </button>
-                                </h2>
-                                <div id="projects" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        <!-- Contenido de proyectos y ejemplos -->
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -354,32 +405,45 @@ class Raspbot:
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h5 class='titulo-footer'>
-                        <a href="../index.php">
-                        DataTeam
-                        </a></h5>
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                    <h5>DataTeam</h5>
                     <p>Innovación en robótica educativa</p>
+                    <div class="footer-address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>CDE, Paraguay</span>
+                    </div>
+                    <div class="footer-address">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@datateam.com">info@datateam.com</a>
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
                     <h5>Proyectos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="../raspbot/raspbot.php">RaspBot</a></li>
-                        <li><a href="../drawbot/drawbot.php">DrawBot</a></li>
+                        <li><a href="../raspbot/raspbot.html"><i class="fas fa-angle-right me-2"></i>RaspBot</a></li>
+                        <li><a href="../drawbot/drawbot.html"><i class="fas fa-angle-right me-2"></i>DrawBot</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home"><i class="fas fa-angle-right me-2"></i>Inicio</a></li>
+                        <li><a href="#about"><i class="fas fa-angle-right me-2"></i>Sobre el Proyecto</a></li>
+                        <li><a href="#assembly"><i class="fas fa-angle-right me-2"></i>Pasos de Armado</a></li>
+                        <li><a href="#documentation"><i class="fas fa-angle-right me-2"></i>Documentación</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
                     <h5>Síguenos</h5>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
+            <div class="row footer-bottom">
                 <div class="col-12 text-center">
-                    <p class="mb-0">&copy; <?php echo date('Y'); ?> DataTeam. Todos los derechos reservados.</p>
+                    <p class="mb-0">&copy; 2025 DataTeam. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
