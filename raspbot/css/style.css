@@ -1276,3 +1276,115 @@ section h2:after {
         padding: 0.75rem 1rem;
     }
 }
+
+/* Estilos para la sección del equipo */
+#team .accordion-item {
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+#team .accordion-button {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    padding: 15px 20px;
+}
+
+#team .accordion-button:not(.collapsed) {
+    background-color: var(--primary-color-dark);
+    color: white;
+}
+
+#team .accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+#team .accordion-body {
+    background-color: white;
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+#team .accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+@media (max-width: 768px) {
+    #team .accordion-button {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    #team .accordion-body {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para la sección del equipo */
+.custom-accordion .accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.custom-accordion .accordion-button {
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) i {
+    color: white;
+}
+
+.custom-accordion .accordion-button i {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.custom-accordion .accordion-button .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.custom-accordion .accordion-body {
+    background-color: white;
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.custom-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .custom-accordion .accordion-button {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .custom-accordion .accordion-body {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
