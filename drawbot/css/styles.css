@@ -8,6 +8,34 @@
     --light-gray: #f8f9fa;
 }
 
+/* Para Safari */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--light-bg);
+}
+
+/* Para navegadores que soportan scrollbar-color (Firefox y más) */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--light-bg);
+}
+
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: var(--text-color);

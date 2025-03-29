@@ -13,8 +13,32 @@
     --transition-normal: all 0.3s ease;
 }
 
+/* Para Safari */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--light-bg);
+}
+
+/* Para navegadores que soportan scrollbar-color (Firefox y más) */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--light-bg);
+}
+
+
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 body {
@@ -155,7 +179,7 @@ body {
 
 /* Feature Icons */
 .fas {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     transition: transform 0.3s ease;
 }
 
@@ -446,6 +470,7 @@ body {
 }
 
 .flip-card-front, .flip-card-back {
+    //color: var(--secondary-color);
     position: absolute;
     width: 100%;
     min-height: 400px;
@@ -466,7 +491,7 @@ body {
 .flip-card-back {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); 
     padding-bottom: 80px; /* Espacio para el botón */
 }
 
