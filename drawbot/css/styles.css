@@ -620,6 +620,59 @@ section h2::after {
     transform: scale(1.2);
 }
 
+/* 3D Model Container */
+.model-container {
+    background: linear-gradient(145deg, var(--primary-color), var(--dark-bg));
+    border-radius: 15px;
+    padding: clamp(10px, 3vw, 20px);
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: clamp(15px, 5vw, 25px);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+#container3d {
+    background-color: var(--light-bg);
+    width: 100%;
+    max-width: 600px;
+    height: clamp(200px, 50vw, 300px);
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: none;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.loading3d {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+    padding: clamp(0.5rem, 3vw, 1rem) clamp(1rem, 5vw, 2rem);
+    border-radius: 8px;
+    z-index: 2;
+    text-align: center;
+}
+
+#container3d canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 /* ==========================================================================
    FOOTER MEJORADO
    ========================================================================== */

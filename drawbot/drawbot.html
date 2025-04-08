@@ -8,18 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <style>
         #container3d {
-            width: 100%;
-            height: 500px;
+            width: 50%;
+            height: 300px;
             position: relative;
+            display: inline-block;
             background: #f8f9fa;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            vertical-align: top;
+            margin-left: auto;
         }
 
         .loading3d {
@@ -86,9 +90,9 @@
         </div>
     </nav>
 
-    <!-- Ajustar el margen superior del contenido -->
+    <!-- Ajustar el margen superior del contenido 
     <div style="margin-top: 80px;"></div>
-
+-->
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
@@ -189,30 +193,36 @@
     </section>
 
     <!-- Sección Modelo 3D -->
-    <section id="modelo3d" class="modelo3d-section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2>Modelo 3D Interactivo</h2>
-                <p class="lead">Explora nuestro DrawBot en 3D. Puedes rotar, hacer zoom y mover el modelo para ver todos sus detalles.</p>
+    <div class="row">
+        <!-- Features Section -->
+        <section id="features" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4 fade-in">Características</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-12 mb-4">
+                <div class="about-card">
+                    <h3 class="mb-3">Modelo de la DrawBot</h3>
+                    <p>La DrawBot es un proyecto de CNC elaborado con arduino teniendo un diseñado de la siguiente manera:</p>
+                    <ul>
+                        <li><strong>Programación en Arduino IDE</strong> - Utiliza el lenguaje de programacion de Arduino</li>
+                        <li><strong>Procesamiento sensorial</strong> - A traves de la camara y el microfono es capaz de detectar objetos y mantener una conversacion con el usuario</li>
+                        <li><strong>Control de motores</strong> - Movimiento preciso y navegación</li>
+                    </ul>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-10">
+            <div class="col-lg-7 col-md-12">
+                <div class="model-container">
                     <div id="container3d">
                         <div class="loading3d">Cargando modelo 3D...</div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <p class="text-muted">
-                    <i class="fas fa-mouse me-2"></i>Click y arrastra para rotar
-                    <span class="mx-3">|</span>
-                    <i class="fas fa-search-plus me-2"></i>Rueda del mouse para zoom
-                </p>
-            </div>
         </div>
-    </section>
+    </div>
+        </section>
+    </div>
 
-    <!-- Contact Section -->
+    <!-- Contact Section 
     <section id="contact" class="contact">
         <div class="container">
             <h2>Contacto</h2>
@@ -241,6 +251,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Footer -->
     <footer class="footer">
