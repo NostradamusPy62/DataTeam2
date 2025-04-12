@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataTeam - Innovación en Robótica</title>
     <!-- Bootstrap CSS -->
@@ -11,7 +12,7 @@
     <!-- Custom CSS -->
     <link href="css/styles3.css" rel="stylesheet">
 
- 
+
 
     <!-- Three.js y módulos -->
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -24,14 +25,15 @@
     }
     </script>
 </head>
+
 <body>
     <!--<canvas id="particleCanvas"></canvas>
      Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-            <i class="fab fa-raspberry-pi" title="Raspberry Pi"></i>
-            Raspbot</a>
+                <i class="fab fa-raspberry-pi" title="Raspberry Pi"></i>
+                Raspbot</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -72,12 +74,12 @@
             </div>
         </section>
 
-            <!-- About Section with card -->
+        <!-- About Section with card -->
         <section id="about" class="py-5 bg-light">
             <div class="container">
-                
+
                 <h2 class="text-center mb-4 fade-in" id="tituloxd">Sobre el Proyecto</h2>
-                
+
                 <!-- Tarjeta flip -->
                 <div class="row mb-4">
                     <div class="col-lg-10 mx-auto">
@@ -87,28 +89,40 @@
                                     <div class="flip-card-front">
                                         <h3>¿Qué es RaspBot?</h3>
                                         <p>
-                                            RaspBot es un robot móvil inteligente desarrollado sobre una Raspberry Pi 4 y un Arduino Uno. Combina inteligencia artificial, visión computacional, sensores modulares, interacción por voz y control remoto para convertirse en una herramienta educativa, de monitoreo y experimentación. Es accesible, personalizable y pensado para estudiantes, docentes y entusiastas de la robótica e IA.
+                                            RaspBot es un robot móvil inteligente desarrollado sobre una Raspberry Pi 4
+                                            y un Arduino Uno. Combina inteligencia artificial, visión computacional,
+                                            sensores modulares, interacción por voz y control remoto para convertirse en
+                                            una herramienta educativa, de monitoreo y experimentación. Es accesible,
+                                            personalizable y pensado para estudiantes, docentes y entusiastas de la
+                                            robótica e IA.
                                         </p>
 
-                                        <button class="flip-btn" onclick="voltearTarjeta()">Ver más <i class="fas fa-arrow-right"></i></button>
+                                        <button class="flip-btn" onclick="voltearTarjeta()">Ver más <i
+                                                class="fas fa-arrow-right"></i></button>
                                     </div>
                                     <div class="flip-card-back">
                                         <h3>Aplicaciones y Potencial</h3>
-                                        <p>RaspBot tiene un alto potencial en distintos campos gracias a su diseño modular y multifuncional:</p>
+                                        <p>RaspBot tiene un alto potencial en distintos campos gracias a su diseño
+                                            modular y multifuncional:</p>
                                         <ul>
-                                            <li>Educación: Ideal para enseñar robótica, programación e inteligencia artificial en aulas y talleres.</li>
-                                            <li>Investigación: Plataforma versátil para pruebas de algoritmos de visión, sensores y automatización.</li>
-                                            <li>Monitoreo: Capaz de observar y reportar condiciones del entorno en tiempo real, útil en laboratorios o espacios de trabajo.</li>
-                                            <li>Experimentación DIY: Base accesible para quienes quieran desarrollar sus propios proyectos con IA.</li>
+                                            <li>Educación: Ideal para enseñar robótica, programación e inteligencia
+                                                artificial en aulas y talleres.</li>
+                                            <li>Investigación: Plataforma versátil para pruebas de algoritmos de visión,
+                                                sensores y automatización.</li>
+                                            <li>Monitoreo: Capaz de observar y reportar condiciones del entorno en
+                                                tiempo real, útil en laboratorios o espacios de trabajo.</li>
+                                            <li>Experimentación DIY: Base accesible para quienes quieran desarrollar sus
+                                                propios proyectos con IA.</li>
                                         </ul>
-                                        <button class="flip-btn back-btn" onclick="voltearTarjeta()">Volver <i class="fas fa-arrow-left"></i></button>
+                                        <button class="flip-btn back-btn" onclick="voltearTarjeta()">Volver <i
+                                                class="fas fa-arrow-left"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Características con íconos -->
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
@@ -117,21 +131,24 @@
                                 <div class="info-card">
                                     <i class="fas fa-eye fa-3x mb-3"></i>
                                     <h3>Visión Inteligente</h3>
-                                    <p>Equipado con un sistema de visión por computadora que le permite detectar objetos, reconocer rostros y analizar su entorno en tiempo real.</p>
+                                    <p>Equipado con un sistema de visión por computadora que le permite detectar
+                                        objetos, reconocer rostros y analizar su entorno en tiempo real.</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="info-card">
                                     <i class="fas fa-microchip fa-3x mb-3"></i>
                                     <h3>Procesamiento <br> Avanzado</h3>
-                                    <p>Utiliza una Raspberry Pi 4 como núcleo, garantizando un rendimiento eficiente para el análisis de datos y el control de sus funciones.</p>
+                                    <p>Utiliza una Raspberry Pi 4 como núcleo, garantizando un rendimiento eficiente
+                                        para el análisis de datos y el control de sus funciones.</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="info-card">
                                     <i class="fas fa-comments fa-3x mb-3"></i>
                                     <h3>Interacción Natural</h3>
-                                    <p>Capaz de mantener conversaciones con el usuario, responder preguntas y ejecutar comandos según el rol asignado.</p>
+                                    <p>Capaz de mantener conversaciones con el usuario, responder preguntas y ejecutar
+                                        comandos según el rol asignado.</p>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +157,7 @@
             </div>
         </section>
 
-            <!-- Evolution Section -->
+        <!-- Evolution Section -->
         <section id="evolution" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-4 fade-in">Evolución del Proyecto</h2>
@@ -148,11 +165,16 @@
                     <div class="col-lg-10 mx-auto">
                         <div id="evolutionCarousel" class="carousel slide evolution-carousel" data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Etapa 1"></button>
-                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="1" aria-label="Etapa 2"></button>
-                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="2" aria-label="Etapa 3"></button>
-                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="3" aria-label="Etapa 4"></button>
-                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="4" aria-label="Etapa 5"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Etapa 1"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="1"
+                                    aria-label="Etapa 2"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="2"
+                                    aria-label="Etapa 3"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="3"
+                                    aria-label="Etapa 4"></button>
+                                <button type="button" data-bs-target="#evolutionCarousel" data-bs-slide-to="4"
+                                    aria-label="Etapa 5"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -167,9 +189,13 @@
                                                 </div>
                                                 <div class="card-content">
                                                     <p>
-                                                        Se define el objetivo del proyecto: crear un asistente robótico educativo con capacidades de IA. Se eligen los componentes base, como la Raspberry Pi 4 para el procesamiento y la mBot2 como plataforma de movilidad. Se plantea una arquitectura modular que permita integrar sensores, cámara y sistemas de control.
+                                                        Se define el objetivo del proyecto: crear un asistente robótico
+                                                        educativo con capacidades de IA. Se eligen los componentes base,
+                                                        como la Raspberry Pi 4 para el procesamiento y la mBot2 como
+                                                        plataforma de movilidad. Se plantea una arquitectura modular que
+                                                        permita integrar sensores, cámara y sistemas de control.
                                                     </p>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -187,16 +213,20 @@
                                                 </div>
                                                 <div class="card-content">
                                                     <p>
-                                                        Se desarrolla el primer modelo funcional combinando la Raspberry Pi 4 con la mBot2, utilizando conexiones básicas para el control de motores y la integración de sensores. Se prueba la movilidad, se establece la comunicación entre módulos y se empieza a trabajar con visión computacional básica.
+                                                        Se desarrolla el primer modelo funcional combinando la Raspberry
+                                                        Pi 4 con la mBot2, utilizando conexiones básicas para el control
+                                                        de motores y la integración de sensores. Se prueba la movilidad,
+                                                        se establece la comunicación entre módulos y se empieza a
+                                                        trabajar con visión computacional básica.
                                                     </p>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                        <div class="row">
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 3">
                                         </div>
@@ -207,14 +237,18 @@
                                                 </div>
                                                 <div class="card-content">
                                                     <p>
-                                                        Se optimiza la estructura física del RaspBot, añadiendo más sensores (distancia, temperatura, humedad), una cámara de mejor calidad y mejorando el sistema de montaje. Se afina la integración entre la Raspberry Pi, la mBot2 y otros periféricos para lograr un funcionamiento más robusto.
+                                                        Se optimiza la estructura física del RaspBot, añadiendo más
+                                                        sensores (distancia, temperatura, humedad), una cámara de mejor
+                                                        calidad y mejorando el sistema de montaje. Se afina la
+                                                        integración entre la Raspberry Pi, la mBot2 y otros periféricos
+                                                        para lograr un funcionamiento más robusto.
                                                     </p>
-                                                   
+
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -227,14 +261,18 @@
                                                 </div>
                                                 <div class="card-content">
                                                     <p>
-                                                        Se programa en Python un sistema inteligente que permite procesamiento de imagen, interacción por voz, control remoto desde una app y automatización de tareas. Se integran módulos de IA para visión computacional, comandos de voz y respuesta contextual.
+                                                        Se programa en Python un sistema inteligente que permite
+                                                        procesamiento de imagen, interacción por voz, control remoto
+                                                        desde una app y automatización de tareas. Se integran módulos de
+                                                        IA para visión computacional, comandos de voz y respuesta
+                                                        contextual.
                                                     </p>
-                                                   
+
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -247,20 +285,25 @@
                                                 </div>
                                                 <div class="card-content">
                                                     <p>
-                                                        RaspBot se introduce en entornos educativos para validar su aplicación como herramienta didáctica. Se ajustan las interfaces y se documenta todo el proceso para facilitar su adopción por estudiantes, docentes y makers.
+                                                        RaspBot se introduce en entornos educativos para validar su
+                                                        aplicación como herramienta didáctica. Se ajustan las interfaces
+                                                        y se documenta todo el proceso para facilitar su adopción por
+                                                        estudiantes, docentes y makers.
                                                     </p>
-                                                   
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#evolutionCarousel" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#evolutionCarousel"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Anterior</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#evolutionCarousel" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#evolutionCarousel"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Siguiente</span>
                             </button>
@@ -269,51 +312,64 @@
                 </div>
             </div>
         </section>
-            <div class="row">
-                <!-- Features Section -->
-                <section id="features" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-4 fade-in">Características</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-5 col-md-12 mb-4">
-                        <div class="about-card">
-                            <h3 class="mb-3">Modelo de RaspBot</h3>
-                            <p>El RaspBot es un robot móvil con inteligencia artificial montado sobre una base mBot2, lo que le otorga gran estabilidad y movilidad. Está diseñado para ser una herramienta educativa accesible y poderosa, capaz de adaptarse a distintos contextos.</p>
-                            <ul>
-                                <li><strong>Programación en Python</strong> - El sistema está desarrollado en Python, el lenguaje de programación más popular en IA, lo que permite que cualquier persona con conocimientos básicos pueda modificar y expandir sus funcionalidades.</li>
-                                <li><strong>Procesamiento sensorial</strong> - Con su cámara y micrófono, el RaspBot puede reconocer objetos, interpretar el entorno y mantener conversaciones básicas con los usuarios.</li>
-                                <li><strong>Movilidad Inteligente con mBot2</strong> - Gracias a la plataforma mBot2, el robot tiene movimiento preciso, control de motores eficiente y la capacidad de desplazarse de manera autónoma o dirigida en distintos entornos.</li>
-                            </ul>
+        <div class="row">
+            <!-- Features Section -->
+            <section id="features" class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-4 fade-in">Características</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5 col-md-12 mb-4">
+                            <div class="about-card">
+                                <h3 class="mb-3">Modelo de RaspBot</h3>
+                                <p>El RaspBot es un robot móvil con inteligencia artificial montado sobre una base
+                                    mBot2, lo que le otorga gran estabilidad y movilidad. Está diseñado para ser una
+                                    herramienta educativa accesible y poderosa, capaz de adaptarse a distintos
+                                    contextos.</p>
+                                <ul>
+                                    <li><strong>Programación en Python</strong> - El sistema está desarrollado en
+                                        Python, el lenguaje de programación más popular en IA, lo que permite que
+                                        cualquier persona con conocimientos básicos pueda modificar y expandir sus
+                                        funcionalidades.</li>
+                                    <li><strong>Procesamiento sensorial</strong> - Con su cámara y micrófono, el RaspBot
+                                        puede reconocer objetos, interpretar el entorno y mantener conversaciones
+                                        básicas con los usuarios.</li>
+                                    <li><strong>Movilidad Inteligente con mBot2</strong> - Gracias a la plataforma
+                                        mBot2, el robot tiene movimiento preciso, control de motores eficiente y la
+                                        capacidad de desplazarse de manera autónoma o dirigida en distintos entornos.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-7 col-md-12">
-                        <div class="model-container">
-                            <div id="container3d">
-                                <div class="loading3d">Cargando modelo 3D...</div>
+                        <div class="col-lg-7 col-md-12">
+                            <div class="model-container">
+                                <div id="container3d">
+                                    <!-- <div class="loading3d">Cargando modelo 3D...</div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                </section>
-            </div>
+            </section>
         </div>
-    </section>
+        </div>
+        </section>
 
-    <!-- Documentation Section -->
-    <section id="documentation" class="py-5 bg-light">
+        <!-- Documentation Section -->
+        <section id="documentation" class="py-5 bg-light">
             <div class="container">
-            <h3 class="text-center mb-4 fade-in" id="tituloxd">Documentación</h3>
+                <h3 class="text-center mb-4 fade-in" id="tituloxd">Documentación</h3>
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="accordion" id="docsAccordion">
                             <div class="accordion-item">
-                            <h3 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hardware" aria-expanded="false" aria-controls="hardware">
-                                    <span>Hardware y Esquemas Eléctricos</span>
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#hardware" aria-expanded="false" aria-controls="hardware">
+                                        <span>Hardware y Esquemas Eléctricos</span>
                                     </button>
-                            </h3>
-                            <div id="hardware" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#docsAccordion">
+                                </h3>
+                                <div id="hardware" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#docsAccordion">
                                     <div class="accordion-body">
                                         <h4>Componentes Principales</h4>
                                         <ul class="list-group mb-3">
@@ -340,27 +396,32 @@
                                         <h4>Esquemas Eléctricos</h4>
                                         <div class="row">
                                             <div class="col-md-6">
-                                            <img src="images/wiring-diagram.png" class="img-fluid rounded shadow-sm" alt="Diagrama de Conexiones">
+                                                <img src="images/wiring-diagram.png" class="img-fluid rounded shadow-sm"
+                                                    alt="Diagrama de Conexiones">
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Diagrama detallado de las conexiones entre los componentes del Raspbot.</p>
-                                                <a href="docs/hardware.pdf" class="btn btn-outline-primary">Descargar PDF</a>
+                                                <p>Diagrama detallado de las conexiones entre los componentes del
+                                                    Raspbot.</p>
+                                                <a href="docs/hardware.pdf" class="btn btn-outline-primary">Descargar
+                                                    PDF</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
-                            <h3 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#software" aria-expanded="false" aria-controls="software">
-                                    <span>Software y Código Fuente</span>
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#software" aria-expanded="false" aria-controls="software">
+                                        <span>Software y Código Fuente</span>
                                     </button>
-                            </h3>
-                            <div id="software" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#docsAccordion">
+                                </h3>
+                                <div id="software" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#docsAccordion">
                                     <div class="accordion-body">
                                         <h4>Estructura del Proyecto</h4>
-                                    <div class="bg-light p-3 rounded mb-3">
-                                        <pre class="mb-0">
+                                        <div class="bg-light p-3 rounded mb-3">
+                                            <pre class="mb-0">
 raspbot/
 ├── src/
 │   ├── main.py          # Archivo principal
@@ -369,12 +430,12 @@ raspbot/
 │   └── utils/           # Utilidades
 ├── docs/               # Documentación
 └── tests/              # Pruebas unitarias</pre>
-                                    </div>
+                                        </div>
                                         <h4>Requisitos de Software</h4>
                                         <ul class="list-group mb-3">
                                             <li class="list-group-item">
                                                 <h5>Python 3.9+</h5>
-                                            <p>Intérprete de Python</p>
+                                                <p>Intérprete de Python</p>
                                             </li>
                                             <li class="list-group-item">
                                                 <h5>Bibliotecas</h5>
@@ -386,8 +447,8 @@ raspbot/
                                             </li>
                                         </ul>
                                         <h4>Ejemplo de Código</h4>
-                                    <div class="bg-light p-3 rounded mb-3">
-                                        <pre class="mb-0">
+                                        <div class="bg-light p-3 rounded mb-3">
+                                            <pre class="mb-0">
 from raspbot.sensors import UltrasonicSensor
 from raspbot.motors import MotorController
 
@@ -403,18 +464,19 @@ class Raspbot:
             self.motor.turn_left()
         else:
             self.motor.forward()</pre>
-                                    </div>
-                                        <a href="https://github.com/raspbot/project" class="btn btn-outline-primary">Ver Repositorio</a>
+                                        </div>
+                                        <a href="https://github.com/raspbot/project" class="btn btn-outline-primary">Ver
+                                            Repositorio</a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Team Section 
+        <!-- Team Section 
     <section id="team" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4 fade-in">Nuestro Equipo</h2>
@@ -521,219 +583,116 @@ class Raspbot:
         </div>
     </section>
 -->
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <h5>DataTeam</h5>
-                    <p>Innovación en robótica educativa</p>
-                    <div class="footer-address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>CDE, Paraguay</span>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                        <h5>DataTeam</h5>
+                        <p>Innovación en robótica educativa</p>
+                        <div class="footer-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>CDE, Paraguay</span>
+                        </div>
+                        <div class="footer-address">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@datateam.com">info@datateam.com</a>
+                        </div>
                     </div>
-                    <div class="footer-address">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:info@datateam.com">info@datateam.com</a>
+                    <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                        <h5>Proyectos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="../raspbot/raspbot.html"><i class="fas fa-angle-right me-2"></i>RaspBot</a>
+                            </li>
+                            <li><a href="../drawbot/drawbot.html"><i class="fas fa-angle-right me-2"></i>DrawBot</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#home"><i class="fas fa-angle-right me-2"></i>Inicio</a></li>
+                            <li><a href="#about"><i class="fas fa-angle-right me-2"></i>Sobre el Proyecto</a></li>
+                            <li><a href="#evolution"><i class="fas fa-angle-right me-2"></i>Evolución del Proyecto</a>
+                            </li>
+                            <li><a href="#documentation"><i class="fas fa-angle-right me-2"></i>Documentación</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                        <h5>Síguenos</h5>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <h5>Proyectos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../raspbot/raspbot.html"><i class="fas fa-angle-right me-2"></i>RaspBot</a></li>
-                        <li><a href="../drawbot/drawbot.html"><i class="fas fa-angle-right me-2"></i>DrawBot</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <h5>Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#home"><i class="fas fa-angle-right me-2"></i>Inicio</a></li>
-                        <li><a href="#about"><i class="fas fa-angle-right me-2"></i>Sobre el Proyecto</a></li>
-                        <li><a href="#evolution"><i class="fas fa-angle-right me-2"></i>Evolución del Proyecto</a></li>
-                        <li><a href="#documentation"><i class="fas fa-angle-right me-2"></i>Documentación</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <h5>Síguenos</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="row footer-bottom">
+                    <div class="col-12 text-center">
+                        <p class="mb-0">&copy; 2025 DataTeam. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </div>
-            <div class="row footer-bottom">
-                <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2025 DataTeam. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-   <!-- Modelo 3D -->
-   <script type="module">
-        import * as THREE from 'three';
-        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        // Configuración básica
-        const container = document.getElementById('container3d');
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xffffff);
+        <!-- Modelo 3D -->
+        <script type="module" src="datateamjs/raspbot3d.js"></script>
 
-        // Configurar cámara
-        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        camera.position.z = 5;
+        <script>
+            // Función simple para girar la tarjeta
+            function voltearTarjeta() {
+                document.getElementById('flipCard').classList.toggle('flipped');
+            }
+            /* JavaScript Functions */
+            /* Para ser implementado con JS */
 
-        // Configurar renderer
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.outputEncoding = THREE.sRGBEncoding;
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1;
 
-        // Agregar canvas al contenedor
-        container.appendChild(renderer.domElement);
+            /* Función para voltear tarjeta - Para implementar con JS */
+            function voltearTarjeta() {
+                document.getElementById('flipCard').querySelector('.flip-card-inner').style.transform = (
+                    document.getElementById('flipCard').querySelector('.flip-card-inner').style.transform === 'rotateY(180deg)' ?
+                        'rotateY(0deg)' : 'rotateY(180deg)'
+                );
+            }
 
-        // Iluminación
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-        scene.add(ambientLight);
-        
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
-        directionalLight.position.set(5, 5, 5);
-        scene.add(directionalLight);
+            /* Activar animaciones al hacer scroll */
+            document.addEventListener('DOMContentLoaded', function () {
+                // Detectar elementos cuando entran en el viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
 
-        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight2.position.set(-5, -5, -5);
-        scene.add(directionalLight2);
-
-        // Controles
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.05;
-
-        // Cargar modelo
-        const loader = new GLTFLoader();
-        const modelPath = '3D/scene.gltf'; // Cambiado para usar la nueva ruta desde la raíz
-
-        loader.load(
-            modelPath,
-            function (gltf) {
-              
-                const model = gltf.scene;
-
-                // Ajustar materiales
-                model.traverse((node) => {
-                    if (node.isMesh && node.material) {
-                        node.material.needsUpdate = true;
-                        node.material.side = THREE.DoubleSide;
-                    }
+                // Observar todos los elementos con clase fade-in
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    observer.observe(el);
                 });
 
-                scene.add(model);
+                // Observar elementos con clase slide-up
+                document.querySelectorAll('.slide-up').forEach(el => {
+                    observer.observe(el);
+                    el.addEventListener('animationend', () => {
+                        el.classList.remove('slide-up');
+                    });
+                });
 
-                // Centrar y ajustar tamaño
-                const box = new THREE.Box3().setFromObject(model);
-                const center = box.getCenter(new THREE.Vector3());
-                const size = box.getSize(new THREE.Vector3());
-                const maxDim = Math.max(size.x, size.y, size.z);
-                const fov = camera.fov * (Math.PI / 180);
-                let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
-                camera.position.z = cameraZ * 1.5;
-                
-                controls.target.copy(center);
-                controls.update();
-
-                // Ocultar mensaje de carga
-                const loadingElement = container.querySelector('.loading3d');
-                if (loadingElement) {
-                    loadingElement.style.display = 'none';
-                }
-            },
-            function (xhr) {
-                const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
-            },
-            function (error) {
-                console.error('Error al cargar el modelo:', error);
-                const loadingElement = container.querySelector('.loading3d');
-                if (loadingElement) {
-                    loadingElement.textContent = 'Error al cargar el modelo 3D';
-                }
-            }
-        );
-
-        // Animación
-        function animate() {
-            requestAnimationFrame(animate);
-            controls.update();
-            renderer.render(scene, camera);
-        }
-
-        // Manejo de redimensionamiento
-        function onWindowResize() {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-
-        window.addEventListener('resize', onWindowResize);
-        animate();
-        </script>
-
-<script>
-// Función simple para girar la tarjeta
-function voltearTarjeta() {
-    document.getElementById('flipCard').classList.toggle('flipped');
-}
-/* JavaScript Functions */
-/* Para ser implementado con JS */
-
-
-/* Función para voltear tarjeta - Para implementar con JS */
-function voltearTarjeta() {
-  document.getElementById('flipCard').querySelector('.flip-card-inner').style.transform = (
-    document.getElementById('flipCard').querySelector('.flip-card-inner').style.transform === 'rotateY(180deg)' ? 
-    'rotateY(0deg)' : 'rotateY(180deg)'
-  );
-}
-
-/* Activar animaciones al hacer scroll */
-document.addEventListener('DOMContentLoaded', function() {
-  // Detectar elementos cuando entran en el viewport
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  // Observar todos los elementos con clase fade-in
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Observar elementos con clase slide-up
-  document.querySelectorAll('.slide-up').forEach(el => {
-    observer.observe(el);
-    el.addEventListener('animationend', () => {
-      el.classList.remove('slide-up');
-    });
-  });
-
-  // Navbar scroll
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      document.querySelector('.navbar').classList.add('scrolled');
-    } else {
-      document.querySelector('.navbar').classList.remove('scrolled');
-    }
-  });
-});
+                // Navbar scroll
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 100) {
+                        document.querySelector('.navbar').classList.add('scrolled');
+                    } else {
+                        document.querySelector('.navbar').classList.remove('scrolled');
+                    }
+                });
+            });
         </script>
         <script src="datateamjs/script.js"></script>
         <script src="datateamjs/scriptLetra.js"></script>
 </body>
+
 </html>
