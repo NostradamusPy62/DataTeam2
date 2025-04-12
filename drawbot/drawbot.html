@@ -81,9 +81,12 @@
             <h2>Sobre el Proyecto</h2>
             <div class="row">
                 <div class="col-lg-6">
-                    <p>DrawBot es un proyecto educativo que combina robótica, programación y arte. Este robot es capaz
-                        de reproducir dibujos y crear arte de manera autónoma, siendo una herramienta perfecta para
-                        aprender sobre mecánica, electrónica y programación.</p>
+                    <p>
+                        DrawBot es una máquina CNC casera diseñada para automatizar el dibujo de imágenes con alta precisión, utilizando tecnología accesible y materiales reciclados. Basado en Arduino Uno, este dispositivo convierte diseños digitales en trazos físicos mediante el uso de G-code.
+                    </p>
+                    <p>
+                        Gracias a sus motores reutilizados de lectores de DVD y un servomotor que controla el lápiz, DrawBot permite experimentar con fabricación digital de forma educativa, económica y sustentable, ideal para estudiantes, makers y entornos de aprendizaje.
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <div class="features">
@@ -112,19 +115,46 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h4>1. Componentes</h4>
-                    <p>Lista de materiales necesarios y herramientas requeridas.</p>
+                        <ul>
+                            <li>Arduino Uno</li>
+                            <li>Motores de DVD antiguos</li>
+                            <li>Servomotor</li>
+                            <li>Controlador L293D</li>
+                            <li>Estructura de madera reciclada</li>
+                            <li>Cables y conectores</li>
+                            <li>Fuente de alimentación</li>
+                            <li>Soporte para el lápiz</li>
+                            <li>Poleas y cuerdas</li>
+                            <li>Banda elástica</li>
+                            <li>Perfiles de aluminio</li>
+                      </ul>
                 </div>
                 <div class="timeline-item">
                     <h4>2. Ensamblaje</h4>
-                    <p>Guía paso a paso del montaje mecánico.</p>
+                    <ul>
+                        <li>Armar la estructura de madera reciclada para la base.</li>
+                        <li>Fijar los motores de DVD en los ejes X y Y.</li>
+                        <li>Instalar el servomotor en el eje Z para controlar el lápiz.</li>
+                        <li>Conectar los cables de los motores y servomotor al controlador L293D y Arduino.</li>
+                        <li>Realizar pruebas de movimiento para asegurar el funcionamiento correcto.</li>
+                    </ul>
                 </div>
                 <div class="timeline-item">
                     <h4>3. Electrónica</h4>
-                    <p>Conexiones y configuración de componentes electrónicos.</p>
-                </div>
+                    <ul>
+                        <li>Conectar el Arduino Uno al controlador L293D para gestionar los motores y el servomotor.</li>
+                        <li>Alimentar el Arduino y los motores de DVD con fuentes de energía adecuadas.</li>
+                        <li>Asegurar conexiones correctas entre los pines del L293D, motores y Arduino.</li>
+                        <li>Configurar el servomotor en el Arduino para controlar el movimiento del lápiz (eje Z).</li>
+                    </ul>
                 <div class="timeline-item">
                     <h4>4. Programación</h4>
-                    <p>Instalación del software y configuración inicial.</p>
+                    <ul>
+                        <li>Instalar el software Arduino IDE en el computador.</li>
+                        <li>Configurar el entorno de desarrollo para programar el Arduino Uno.</li>
+                        <li>Cargar el código para el control de los motores y servomotor desde el G-code.</li>
+                        <li>Verificar las conexiones y realizar pruebas iniciales de funcionamiento.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -208,14 +238,11 @@
                     <div class="col-lg-5 col-md-12 order-lg-2 order-md-1 order-1">
                         <div class="about-card">
                             <h3 class="mb-3">Modelo de la DrawBot</h3>
-                            <p>La DrawBot es un proyecto de CNC elaborado con arduino teniendo un diseñado de la
-                                siguiente manera:</p>
+                            <p>La <strong>DrawBot</strong> es una máquina CNC casera diseñada para automatizar el dibujo con precisión, utilizando componentes reciclados y tecnología de código abierto. Su estructura y funcionamiento están orientados a la educación, la creatividad y la democratización del acceso a la fabricación digital.</p>
                             <ul>
-                                <li><strong>Programación en Arduino IDE</strong> - Utiliza el lenguaje de programacion
-                                    de Arduino</li>
-                                <li><strong>Procesamiento sensorial</strong> - A traves de la camara y el microfono es
-                                    capaz de detectar objetos y mantener una conversacion con el usuario</li>
-                                <li><strong>Control de motores</strong> - Movimiento preciso y navegación</li>
+                                <li><strong>Programación en Arduino IDE</strong> - Todo el sistema está programado usando Arduino IDE, permitiendo interpretar comandos en G-code para controlar con precisión el movimiento de los motores y el servomotor del eje Z.</li>
+                                <li><strong>Procesamiento sensorial</strong> - En lugar de sensores, la DrawBot interpreta diseños digitales en formato G-code, transformándolos en movimientos físicos sobre el papel. No tiene cámara ni micrófono, ya que su enfoque es la automatización gráfica.</li>
+                                <li><strong>Control de motores</strong> - Usa motores reciclados de lectores de DVD para mover los ejes X e Y con alta precisión. Un servomotor controla el eje Z (subida y bajada del lápiz), logrando trazos limpios y detallados. Todo el movimiento está coordinado por un Arduino Uno y un controlador L293D.</li>
                             </ul>
                         </div>
                     </div>
