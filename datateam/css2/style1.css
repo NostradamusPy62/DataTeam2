@@ -569,9 +569,11 @@ button {
 
 .team-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* This creates exactly 3 columns of equal width */
   gap: var(--space-lg);
   padding: 0 var(--space-md);
+  max-width: 1200px; /* Optional: helps control the overall width */
+  margin: 0 auto; /* Optional: centers the grid if desired */
 }
 
 @media (max-width: 1200px) {

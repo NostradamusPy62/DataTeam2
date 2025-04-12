@@ -113,13 +113,13 @@
                     <div id="aboutCarousel" class="carousel slide about-carousel" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="img/team/teamwork1.jpg" class="d-block w-100" alt="Nuestro equipo trabajando">
+                                <img src="./img/team/teamwork1.jpg" class="d-block w-100" alt="Nuestro equipo trabajando">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/team/teamwork2.jpg" class="d-block w-100" alt="Proyecto en desarrollo">
+                                <img src="./img/team/teamwork2.JPG" class="d-block w-100" alt="Proyecto en desarrollo">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/team/teamwork3.jpg" class="d-block w-100" alt="Evento tecnológico">
+                                <img src="./img/team/teamwork3.JPG" class="d-block w-100" alt="Evento tecnológico">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
@@ -150,7 +150,7 @@
             <div id="flipCard1" class="team-card">
                 <div class="team-card-inner">
                     <div class="team-card-front">
-                        <img src="img/team1.jpeg" alt="Lucas Portillo">
+                        <img src="img/team/Portillo.jpeg" alt="Lucas Portillo">
                         <h4>Lucas <br> Portillo</h4>
                         <div class="team-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -161,7 +161,7 @@
                         </button>
                     </div>
                     <div class="team-card-back">
-                        <p class="team-description">Se encarga de hacer que la IA sea más inteligente y trabaja en modelos 3D. También apoya en la parte de inteligencia artificial junto con Julio, asegurando que todo funcione bien en equipo.</p>
+                        <p class="team-description">Se encarga de hacer que la IA sea más inteligente y trabaja en modelos 3D. También apoya en la parte de inteligencia artificial junto con David, asegurando que todo funcione bien en equipo.</p>
                         <button class="back-btn" aria-label="Volver" onclick="voltearTarjeta('flipCard1')">
                             <i class="fas fa-arrow-left"></i>
                         </button>
@@ -265,7 +265,7 @@
             <div id="flipCard6" class="team-card">
                 <div class="team-card-inner">
                     <div class="team-card-front">
-                        <img src="img/team/Lucas3.jpg" alt="Lucas Britez">
+                        <img src="./img/team/Lucas3.JPG" alt="Lucas Britez">
                         <h4>Lucas <br> Britez</h4>
                         <div class="team-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -460,12 +460,10 @@
             
             infoBtn.addEventListener('click', () => {
                 card.classList.add('flipped');
-                console.log('Dar la vuelta')
             });
             
             backBtn.addEventListener('click', () => {
                 card.classList.remove('flipped');
-                console.log("voltear jey")
             });
         });
   document.addEventListener('DOMContentLoaded', function() {
