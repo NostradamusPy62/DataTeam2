@@ -180,7 +180,7 @@
                                 <div class="carousel-item active">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 1">
+                                            <img src="../img/raspbot/modelo3d_raspbot_old.png" class="d-block w-100 rounded" alt="Etapa 1">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
@@ -204,7 +204,7 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 2">
+                                            <img src="../img/raspbot/raspbotv2.jpg" class="d-block w-100 rounded" alt="Etapa 2">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
@@ -228,7 +228,7 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 3">
+                                            <img src="../img/raspbot/raspbotv3.jpg" class="d-block w-100 rounded" alt="Etapa 3">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
@@ -252,7 +252,7 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 4">
+                                            <img src="../img/raspbot/software.png" class="d-block w-100 rounded" alt="Etapa 4">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
@@ -276,7 +276,7 @@
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="../img/raspbot.jpg" class="d-block w-100 rounded" alt="Etapa 5">
+                                            <img src="../img/portadas/raspbot.jpeg" class="d-block w-100 rounded" alt="Etapa 5">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="info-card">
@@ -396,7 +396,7 @@
                                         <h4>Esquemas Eléctricos</h4>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <img src="images/wiring-diagram.png" class="img-fluid rounded shadow-sm"
+                                                <img src="../img/raspbot/conexiones_viejas_raspbot.jpg" class="img-fluid rounded shadow-sm"
                                                     alt="Diagrama de Conexiones">
                                             </div>
                                             <div class="col-md-6">
@@ -436,34 +436,32 @@ raspbot/
                                             <li class="list-group-item">
                                                 <h5>Python 3.9+</h5>
                                                 <p>Intérprete de Python</p>
+                                                
                                             </li>
                                             <li class="list-group-item">
                                                 <h5>Bibliotecas</h5>
                                                 <ul>
-                                                    <li>RPi.GPIO</li>
-                                                    <li>Adafruit_DHT</li>
+                                                    <li>speech_recognition</li>
                                                     <li>opencv-python</li>
+                                                    <li>numpy</li>
+                                                    <li>pygame</li>
+                                                    <li>openai</li>
                                                 </ul>
                                             </li>
                                         </ul>
                                         <h4>Ejemplo de Código</h4>
                                         <div class="bg-light p-3 rounded mb-3">
                                             <pre class="mb-0">
-from raspbot.sensors import UltrasonicSensor
-from raspbot.motors import MotorController
-
-class Raspbot:
-    def __init__(self):
-        self.ultrasonic = UltrasonicSensor()
-        self.motor = MotorController()
-    
-    def avoid_obstacles(self):
-        distance = self.ultrasonic.get_distance()
-        if distance < 30:
-            self.motor.stop()
-            self.motor.turn_left()
-        else:
-            self.motor.forward()</pre>
+def escuchar_comando():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("🎤 Escuchando...")
+        recognizer.adjust_for_ambient_noise(source, duration=0.5)
+        try:
+            audio = recognizer.listen(source, timeout=5, phrase_time_limit=5)
+        except sr.WaitTimeoutError:
+            print("Tiempo de espera agotado - no se detectó audio")
+            return ""</pre>
                                         </div>
                                         <a href="https://github.com/raspbot/project" class="btn btn-outline-primary">Ver
                                             Repositorio</a>
@@ -475,114 +473,6 @@ class Raspbot:
                 </div>
             </div>
         </section>
-
-        <!-- Team Section 
-    <section id="team" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4 fade-in">Nuestro Equipo</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="accordion custom-accordion" id="teamAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="lucasB-header">
-                                <button class="accordion-button collapsed d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#lucasB" aria-expanded="false" aria-controls="lucasB">
-                                    <i class="fas fa-code me-3"></i>
-                                    Lucas Britez - Desarrollador Web & Project Manager
-                                    <i class="fas fa-chevron-down ms-auto"></i>
-                                </button>
-                            </h2>
-                            <div id="lucasB" class="accordion-collapse collapse" aria-labelledby="lucasB-header">
-                                <div class="accordion-body">
-                                    Líder del desarrollo web y gestión de proyectos. Responsable de la arquitectura de las aplicaciones web y la implementación de funcionalidades clave. Su experiencia en desarrollo full-stack y visión estratégica impulsan la innovación en cada proyecto.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="lucasP-header">
-                                <button class="accordion-button collapsed d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#lucasP" aria-expanded="false" aria-controls="lucasP">
-                                    <i class="fas fa-robot me-3"></i>
-                                    Lucas Portillo - Desarrollador de IA & Modelador 3D
-                                    <i class="fas fa-chevron-down ms-auto"></i>
-                                </button>
-                            </h2>
-                            <div id="lucasP" class="accordion-collapse collapse" aria-labelledby="lucasP-header">
-                                <div class="accordion-body">
-                                    Creador principal del script de integración de IA en Raspberry Pi y especialista en modelado 3D. Su expertise en inteligencia artificial y diseño tridimensional ha sido fundamental para el desarrollo de interfaces inmersivas y sistemas inteligentes.
-                                </div>
-                            </div>
-                        </div>
-
-                        Repite el patrón para los demás miembros 
-                         Ayelen Vera 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ayelen-header">
-                                <button class="accordion-button collapsed d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#ayelen" aria-expanded="false" aria-controls="ayelen">
-                                    <i class="fas fa-palette me-3"></i>
-                                    Ayelen Vera - Diseñadora 3D & UI/UX
-                                    <i class="fas fa-chevron-down ms-auto"></i>
-                                </button>
-                            </h2>
-                            <div id="ayelen" class="accordion-collapse collapse" aria-labelledby="ayelen-header">
-                                <div class="accordion-body">
-                                    Especialista en diseño 3D y experiencia de usuario. Su talento artístico y atención al detalle elevan la calidad visual de nuestros proyectos, mientras contribuye al desarrollo de prototipos con Arduino.
-                                </div>
-                            </div>
-                        </div>
-
-                         Mauricio Galeano 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="mauricio-header">
-                                <button class="accordion-button collapsed d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#mauricio" aria-expanded="false" aria-controls="mauricio">
-                                    <i class="fas fa-microchip me-3"></i>
-                                    Mauricio Galeano - Ingeniero de Hardware
-                                    <i class="fas fa-chevron-down ms-auto"></i>
-                                </button>
-                            </h2>
-                            <div id="mauricio" class="accordion-collapse collapse" aria-labelledby="mauricio-header">
-                                <div class="accordion-body">
-                                    Experto en desarrollo de hardware y sistemas embebidos. Lidera la implementación de soluciones con Arduino, asegurando la integración efectiva entre componentes electrónicos y software.
-                                </div>
-                            </div>
-                        </div>
-
-                         Julio Gómez 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="julio-header">
-                                <button class="accordion-button collapsed d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#julio" aria-expanded="false" aria-controls="julio">
-                                    <i class="fas fa-cogs me-3"></i>
-                                    Julio Gómez - Desarrollador de Sistemas Robóticos
-                                    <i class="fas fa-chevron-down ms-auto"></i>
-                                </button>
-                            </h2>
-                            <div id="julio" class="accordion-collapse collapse" aria-labelledby="julio-header">
-                                <div class="accordion-body">
-                                    Colaborador en el desarrollo del sistema de IA para Raspberry Pi y especialista en sistemas robóticos. Su experiencia en programación y diseño mecánico contribuye significativamente al desarrollo del chasis y sistemas de control del robot.
-                                </div>
-                            </div>
-                        </div>
-
-                        Alejandro Chamorro 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="alejandro-header">
-                                <button class="accordion-button collapsed d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#alejandro" aria-expanded="false" aria-controls="alejandro">
-                                    <i class="fas fa-file-alt me-3"></i>
-                                    Alejandro Chamorro - Documentación & Comunicación
-                                    <i class="fas fa-chevron-down ms-auto"></i>
-                                </button>
-                            </h2>
-                            <div id="alejandro" class="accordion-collapse collapse" aria-labelledby="alejandro-header">
-                                <div class="accordion-body">
-                                    Responsable de la documentación técnica y gestión de comunicaciones. Su habilidad para el modelado 3D complementa el desarrollo visual del proyecto, mientras mantiene actualizada toda la documentación y presencia en redes sociales.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
--->
         <!-- Footer -->
         <footer class="footer">
             <div class="container">

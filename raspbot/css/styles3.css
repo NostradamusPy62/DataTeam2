@@ -801,6 +801,10 @@
     font-size: var(--font-size-lg);
     color: var(--accent);
   }
+  .evolution-carousel .carousel-item {
+    height: 500px; /* Ajusta esta altura según tus necesidades */
+    overflow: hidden;
+  }
   
   .carousel-item img {
     border-radius: var(--border-radius-md);
@@ -811,6 +815,122 @@
   .carousel-item img:hover {
     transform: scale(1.02);
   }
+  
+  .evolution-carousel .carousel-item {
+    height: 500px; /* Altura fija para todos los slides */
+  }
+  
+  .evolution-carousel .carousel-item img {
+    width: 100%;
+    height: 400px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción y cubre el espacio */
+    object-position: center; /* Centra la imagen */
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Contenedor para mantener consistente la altura de la información */
+  .evolution-carousel .info-card {
+    height: 400px; /* Misma altura que las imágenes */
+    overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+  }
+  
+  /* Estilo para el scroll dentro de info-card */
+  .evolution-carousel .info-card::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .evolution-carousel .info-card::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 3px;
+  }
+  
+  /* Asegurar que las filas mantienen la altura */
+  .evolution-carousel .row {
+    height: 100%;
+  }
+  
+  /* Centrar verticalmente el contenido */
+  .evolution-carousel .col-md-6 {
+    display: flex;
+    align-items: center;
+  }
+  
+.evolution-carousel .carousel-item {
+  min-height: 400px; /* Altura mínima para todos los slides */
+  padding: 1rem;
+}
+
+.evolution-carousel .carousel-item .row {
+  height: auto; /* Permitir que la altura se ajuste al contenido */
+}
+
+.evolution-carousel .carousel-item img {
+  width: 100%;
+  height: 300px; /* Altura ajustada para móviles */
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem; /* Espacio entre imagen y texto en móviles */
+}
+
+.evolution-carousel .info-card {
+  height: auto; /* Altura automática */
+  min-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .evolution-carousel .carousel-item {
+    height: auto;
+    min-height: 600px; /* Altura mínima ajustada para móviles */
+  }
+  
+  .evolution-carousel .row {
+    flex-direction: column;
+  }
+  
+  .evolution-carousel .col-md-6 {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .evolution-carousel .carousel-item img {
+    height: 250px; /* Altura reducida en móviles */
+    margin-bottom: 1rem;
+  }
+  
+  .evolution-carousel .info-card {
+    height: auto;
+    min-height: 250px;
+  }
+  
+  /* Mejorar controles del carrusel en móviles */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 30px;
+    height: 30px;
+    top: 30%; /* Ajustar posición vertical */
+  }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  .evolution-carousel .carousel-item {
+    min-height: 700px;
+  }
+  
+  .evolution-carousel .info-card {
+    padding: 1rem;
+  }
+  
+  .evolution-carousel .carousel-item h1 {
+    font-size: 1.5rem;
+  }
+}
   
   /* ====== FEATURES SECTION ====== */
   #features {
@@ -1511,4 +1631,3 @@
       transform: scale(0.7) translateY(-15px);
     }
   }
-  
