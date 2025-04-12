@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Estilos para el efecto de escritura con cursor parpadeante - Paleta Fiery Fiesta
+   ========================================================================== */
+
+/* Variables de colores Fiery Fiesta */
+:root {
+  --color-1: #d60032; /* Rojo oscuro */
+  --color-2: #ff3c00; /* Rojo brillante */
+  --color-3: #ff6d1f; /* Naranja */
+  --color-4: #ffb300; /* Ámbar */
+  --color-5: #ffd500; /* Amarillo */
+  
+  /* Definir colores adicionales para sombras y efectos */
+  --glow-color: rgba(255, 60, 0, 0.7);
+  --shadow-color: rgba(255, 109, 31, 0.3);
+  --text-shadow: 0 0 15px rgba(255, 179, 0, 0.7);
+}
+
+/* Contenedor del título principal */
+.hero h1 {
+  display: inline-block;
+  margin: 0;
+  /* Quitar los estilos anteriores de animación de escritura si los hubiera */
+  animation: none !important;
+  border-right: none !important;
+  white-space: nowrap;
+  color: var(--color-4); /* Color ámbar para el texto */
+  text-shadow: 
+    0 0 10px var(--color-2),
+    0 0 20px var(--color-3);
+  font-weight: 700;
+}
+
+/* Texto que se está escribiendo */
+.typing-text {
+  display: inline;
+  background: linear-gradient(90deg, var(--color-5), var(--color-4), var(--color-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cursor parpadeante */
+.typing-cursor {
+  display: inline-block;
+  color: var(--color-2); /* Rojo brillante para el cursor */
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  border-right: none;
+  text-shadow: 0 0 8px var(--color-2), 0 0 15px var(--color-3);
+  position: relative;
+}
+
+/* Clase para detener el parpadeo del cursor */
+.typing-cursor-stop {
+  animation: none;
+  opacity: 1;
+}
+
+/* Animación del parpadeo */
+@keyframes blink {
+  from, to { 
+    opacity: 1; 
+    text-shadow: 0 0 8px var(--color-2), 0 0 15px var(--color-3);
+  }
+  50% { 
+    opacity: 0;
+    text-shadow: none;
+  }
+}
+
+/* Opcional: Efecto de resplandor alrededor del texto mientras se escribe */
+.hero h1::after {
+  content: '';
+  position: absolute;
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--color-3) 20%, 
+    var(--color-2) 50%,
+    var(--color-3) 80%, 
+    transparent 100%);
+  filter: blur(5px);
+  opacity: 0.7;
+  border-radius: 10px;
+}

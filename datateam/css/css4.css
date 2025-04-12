@@ -1,0 +1,956 @@
+/* ==========================================================================
+   DATATEAM - Estilos CSS Optimizados
+   Tema: Innovación en Robótica - Diamond
+   ========================================================================== */
+
+/* Variables Globales de Color y Espaciado
+   ========================================================================== */
+   :root {
+    /* Colores principales de la paleta Diamond */
+    --diamond-primary: #7ca2b1;     /* Color base principal */
+    --diamond-deep: #4f7f8c;        /* Color profundo para acentos */
+    --diamond-light: #b9dae9;       /* Color claro para fondos sutiles */
+    
+    /* Complementarios suaves */
+    --blue-soft: #a5c6d5;           /* Azul suave para fondos alternativos */
+    --blue-accent: #2d5b67;         /* Azul oscuro para detalles */
+    --teal-light: #9fd1e0;          /* Teal claro para variación */
+    
+    /* Acentos pastel */
+    --blue-pale: #d1e8f2;           /* Azul pálido para fondos y acentos */
+    --mint-soft: #b4d6d1;           /* Menta suave complementario */
+    
+    /* Tonos de fondo */
+    --bg-primary: #f8fcff;          /* Blanco con sutil tinte azul */
+    --bg-secondary: #f0f7fb;        /* Gris muy claro con tinte azul */
+    
+    /* Textos */
+    --text-primary: #2d5b67;        /* Azul oscuro para texto principal */
+    --text-secondary: #4f7f8c;      /* Azul medio para texto secundario */
+    --text-tertiary: #7ca2b1;       /* Azul claro para texto terciario */
+    
+    /* Fondos adicionales */
+    --bg-light: var(--bg-primary);   /* Alias para consistencia con código anterior */
+    --bg-dark: #e5eff4;              /* Fondo alternativo claro */
+    --bg-darker: #d3e5ee;            /* Fondo azul-gris para profundidad sutil */
+    --text-dark: var(--text-primary);/* Alias para consistencia */
+    --text-light: #ffffff;           /* Texto en fondos oscuros */
+    --text-muted: #a5c6d5;           /* Texto desvanecido/secundario */
+    --primary: var(--diamond-primary); /* Alias para compatibilidad */
+    --primary-dark: #5e8795;         /* Versión más oscura del azul */
+    --primary-light: var(--diamond-light); /* Alias para compatibilidad */
+    --accent: var(--blue-accent);    /* Alias para compatibilidad */
+    --accent-dark: #214752;          /* Versión más oscura del azul oscuro */
+    --accent-light: #3d6b78;         /* Versión más clara del azul oscuro */
+    
+    /* Sombras y efectos - suavizadas para la paleta diamond */
+    --shadow-sm: 0 3px 12px rgba(124, 162, 177, 0.12);
+    --shadow-md: 0 6px 15px rgba(124, 162, 177, 0.15), 0 1px 3px rgba(79, 127, 140, 0.08);
+    --shadow-lg: 0 10px 25px rgba(124, 162, 177, 0.2), 0 3px 6px rgba(79, 127, 140, 0.12);
+    --shadow-hover: 0 15px 35px rgba(124, 162, 177, 0.25), 0 5px 15px rgba(79, 127, 140, 0.15);
+    
+    /* Bordes y radios */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 36px;
+    
+    /* Espaciados - Sistema consistente basado en unidades de 8px */
+    --space-unit: 8px;
+    --space-xs: calc(var(--space-unit) * 1);    /* 8px */
+    --space-sm: calc(var(--space-unit) * 2);    /* 16px */
+    --space-md: calc(var(--space-unit) * 3);    /* 24px */
+    --space-lg: calc(var(--space-unit) * 5);    /* 40px */
+    --space-xl: calc(var(--space-unit) * 8);    /* 64px */
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Reinicio de estilos y bases
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px para facilitar los cálculos */
+    scroll-behavior: smooth;
+    scroll-padding-top: 76px; /* Compensa la navbar fixed */
+}
+
+body {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    overflow-x: hidden;
+}
+
+/* Tipografía y Textos - Sistema tipográfico mejorado
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(3.2rem, 4vw + 1rem, 5.2rem);
+    background: linear-gradient(120deg, var(--diamond-deep), var(--blue-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(2.8rem, 3vw + 0.5rem, 4rem);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0; 
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--diamond-primary), var(--blue-accent));
+    border-radius: 4px;
+}
+
+.text-center h2::after {
+    left: 50%; /* Restaurar centrado para cabeceras centradas */
+    transform: translateX(-50%);
+}
+
+h3 {
+    font-size: clamp(2rem, 2vw + 0.5rem, 2.8rem);
+    color: var(--diamond-deep);
+}
+
+h4 {
+    font-size: clamp(1.6rem, 1.5vw + 0.5rem, 2.2rem);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+.lead {
+    font-size: clamp(1.8rem, 2vw + 0.5rem, 2.4rem);
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Navbar - Navegación mejorada
+   ========================================================================== */
+.navbar {
+    background-color: rgba(248, 252, 255, 0.92); /* Fondo más claro con tinte azul */
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-sm) 0;
+    transition: all var(--transition-medium);
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-brand {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--diamond-deep) !important;
+    display: flex;
+    align-items: center;
+    transition: transform var(--transition-medium);
+}
+
+.navbar-brand i {
+    margin-right: 10px;
+    background: linear-gradient(120deg, var(--blue-soft), var(--diamond-deep));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: transform var(--transition-medium);
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.navbar-brand:hover i {
+    transform: rotate(20deg);
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    color: var(--text-primary) !important; 
+    font-weight: 500;
+    padding: 0.8rem 1.5rem !important;
+    transition: all var(--transition-medium);
+    position: relative;
+    margin: 0 2px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--diamond-primary), var(--blue-accent));
+    transition: width var(--transition-medium), left var(--transition-medium);
+}
+
+.nav-link:hover {
+    color: var(--diamond-deep) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2845, 91, 103, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Hero Section - Mejorado para mayor impacto con tonos diamond
+   ========================================================================== */
+.hero {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--blue-soft));
+    color: var(--text-primary);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(124, 162, 177, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(45, 91, 103, 0.15) 0%, transparent 40%);
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero .row {
+    min-height: 70vh;
+}
+
+.hero h1 {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards 0.3s;
+}
+
+.hero p {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards 0.6s;
+}
+
+.hero .btn {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards 0.9s;
+}
+
+/* About Section - Mejorada con efectos visuales sutiles
+   ========================================================================== */
+.about {
+    padding: var(--space-xl) 0;
+    position: relative;
+    background-color: var(--bg-primary);
+}
+
+.about-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-top: 4px solid var(--diamond-primary); /* Borde adaptado a diamond */
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--diamond-light), var(--diamond-primary));
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.about-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-accent), var(--blue-pale));
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.about-carousel {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-carousel .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.about-carousel .carousel-control-prev,
+.about-carousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all var(--transition-medium);
+}
+
+.about-carousel:hover .carousel-control-prev,
+.about-carousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.about-carousel .carousel-control-prev {
+    left: 20px;
+}
+
+.about-carousel .carousel-control-next {
+    right: 20px;
+}
+
+/* Sección Equipo - Diseño de tarjetas mejorado con tema diamond
+   ========================================================================== */
+.section-header {
+    margin-bottom: var(--space-xl);
+}
+
+.section-title {
+    font-size: clamp(2.8rem, 3vw + 0.5rem, 4rem);
+    margin-bottom: 1.5rem;
+}
+
+.section-divider {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--diamond-primary), var(--blue-accent));
+    margin: 0 auto 2rem;
+    border-radius: 4px;
+}
+
+.section-subtitle {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.team-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 400px));
+    gap: 3rem;
+    margin-bottom: var(--space-xl);
+    justify-content: center;
+}
+
+.team-member {
+    perspective: 1000px;
+}
+
+.team-card {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.team-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.team-card-front, .team-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.team-card-front {
+    background: white;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-md);
+    border-top: 4px solid var(--blue-soft); /* Borde superior en tono blue-soft */
+}
+
+.team-card-front img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--blue-soft);
+    margin-bottom: var(--space-sm);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-card-front img {
+    transform: scale(1.05);
+}
+
+.team-card-front h4 {
+    margin: var(--space-xs) 0;
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(120deg, var(--diamond-deep), var(--blue-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.team-social {
+    display: flex;
+    gap: 1.5rem;
+    margin: var(--space-sm) 0;
+}
+
+.team-social a {
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    transition: all var(--transition-medium);
+}
+
+.team-social a:hover {
+    color: var(--diamond-deep);
+    transform: translateY(-3px);
+}
+
+.info-btn, .back-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--diamond-primary), var(--blue-accent));
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-md);
+}
+
+.info-btn:hover, .back-btn:hover {
+    transform: translateY(-3px) rotate(5deg);
+    box-shadow: var(--shadow-hover);
+}
+
+.team-card-back {
+    background: linear-gradient(135deg, var(--diamond-primary), var(--blue-soft));
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.team-description {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* Projects Section - Rediseño con enfoque moderno y diamond
+   ========================================================================== */
+.projects {
+    padding: var(--space-xl) 0;
+    background-color: var(--blue-pale);
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 80% 10%, rgba(124, 162, 177, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 20% 90%, rgba(45, 91, 103, 0.15) 0%, transparent 40%);
+    z-index: 0;
+}
+
+.projects .container {
+    position: relative;
+    z-index: 1;
+}
+
+.project-card {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-medium);
+    height: 100%;
+    position: relative;
+    border-bottom: 4px solid var(--blue-soft); /* Borde inferior en tono blue-soft */
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 50%);
+}
+
+.project-card .card-body {
+    padding: var(--space-md);
+    position: relative;
+}
+
+.project-card .card-title {
+    font-size: 2.2rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.project-card .card-text {
+    margin-bottom: var(--space-md);
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+}
+
+.project-tech {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.project-tech i {
+    font-size: 2rem;
+    color: var(--blue-accent);
+    transition: all var(--transition-bounce);
+}
+
+.project-tech i:hover {
+    transform: scale(1.2);
+    color: var(--diamond-deep);
+}
+
+/* Botones - Sistema de botones optimizado para la paleta diamond
+   ========================================================================== */
+.btn {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.2rem 2.4rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-medium);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--diamond-primary), var(--blue-accent));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-medium);
+}
+
+.btn-primary {
+    background: var(--diamond-primary);
+    border: none;
+    box-shadow: 0 4px 15px rgba(124, 162, 177, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--diamond-deep); /* Azul más oscuro */
+    box-shadow: 0 6px 20px rgba(124, 162, 177, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-primary:hover::before {
+    opacity: 0.2;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.btn-secondary {
+    background: var(--blue-accent);
+    border: none;
+    box-shadow: 0 4px 15px rgba(45, 91, 103, 0.3);
+}
+
+.btn-secondary:hover {
+    background: var(--accent-dark); /* Azul oscuro más oscuro */
+    box-shadow: 0 6px 20px rgba(45, 91, 103, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--diamond-primary);
+    color: var(--diamond-primary);
+}
+
+.btn-outline:hover {
+    background: var(--diamond-primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-lg {
+    font-size: 1.8rem;
+    padding: 1.5rem 3rem;
+}
+
+/* Footer - Rediseño con tonos diamond
+   ========================================================================== */
+.footer {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: var(--space-lg) 0 var(--space-sm);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--diamond-primary), var(--blue-accent), var(--blue-soft));
+    background-size: 200% 100%;
+    animation: gradientFlow 3s linear infinite;
+}
+
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-footer {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--diamond-deep);
+}
+
+.footer-column p {
+    margin-bottom: var(--space-xs);
+    color: var(--text-secondary);
+}
+
+.footer-column ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: var(--space-xs);
+}
+
+.footer-column a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-column a:hover {
+    color: var(--blue-accent);
+}
+
+.footer-column a i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(124, 162, 177, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    transition: all var(--transition-medium);
+}
+
+.social-links a:hover {
+    background: linear-gradient(135deg, var(--diamond-primary), var(--blue-accent));
+    transform: translateY(-3px);
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: var(--space-md);
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+}
+
+/* Animaciones - Optimizadas para rendimiento
+   ========================================================================== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Utilidades de animación */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.slide-in-left {
+    opacity: 0;
+    animation: slideInLeft 1s forwards;
+}
+
+.zoom-in {
+    opacity: 0;
+    animation: zoomIn 0.8s forwards;
+}
+
+/* Clases de retardo */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* Media Queries - Optimizadas y actualizadas
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .hero {
+        min-height: 80vh;
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 58%;
+    }
+    
+    .navbar {
+        padding: var(--space-xs) 0;
+    }
+    
+    .hero {
+        min-height: 70vh;
+        padding: var(--space-lg) 0;
+    }
+    
+    .hero .row {
+        min-height: auto;
+    }
+    
+    .about-carousel .carousel-item img {
+        height: 350px;
+    }
+    
+    .project-card {
+        margin-bottom: var(--space-md);
+    }
+    
+    .team-row {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+    }
+    
+    .team-card {
+        height: 360px;
+    }
+    
+    .footer-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

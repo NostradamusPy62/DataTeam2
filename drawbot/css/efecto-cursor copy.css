@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Estilos para el efecto de rastro de letras del cursor - Paleta Fiery Fiesta
+   ========================================================================== */
+
+/* Variables de colores Fiery Fiesta */
+:root {
+  --color-1: #d60032; /* Rojo oscuro */
+  --color-2: #ff3c00; /* Rojo brillante */
+  --color-3: #ff6d1f; /* Naranja */
+  --color-4: #ffb300; /* Ámbar */
+  --color-5: #ffd500; /* Amarillo */
+  
+  /* Definir colores adicionales para sombras y efectos */
+  --glow-color: rgba(255, 60, 0, 0.7);
+  --shadow-color: rgba(255, 109, 31, 0.3);
+}
+
+/* Contenedor para las letras que siguen al cursor */
+.cursor-writing-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Letras individuales que siguen al cursor */
+.cursor-letter {
+  position: absolute;
+  font-family: 'Orbitron', 'Space Mono', monospace;
+  font-weight: 700;
+  color: var(--color-3); /* Naranja */
+  text-shadow: 0 0 15px var(--color-2); /* Sombra roja brillante */
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: transform, opacity;
+}
+
+/* Aplicar colores diferentes a cada letra dependiendo de su contenido */
+.cursor-letter:nth-of-type(7n+1) { /* D */
+  color: var(--color-5); /* Amarillo */
+  text-shadow: 0 0 15px var(--color-4);
+}
+.cursor-letter:nth-of-type(7n+2) { /* R */
+  color: var(--color-4); /* Ámbar */
+  text-shadow: 0 0 15px var(--color-3);
+}
+.cursor-letter:nth-of-type(7n+3) { /* A */
+  color: var(--color-3); /* Naranja */
+  text-shadow: 0 0 15px var(--color-2);
+}
+.cursor-letter:nth-of-type(7n+4) { /* W */
+  color: var(--color-2); /* Rojo brillante */
+  text-shadow: 0 0 15px var(--color-1);
+}
+.cursor-letter:nth-of-type(7n+5) { /* B */
+  color: var(--color-3); /* Naranja */
+  text-shadow: 0 0 15px var(--color-2);
+}
+.cursor-letter:nth-of-type(7n+6) { /* O */
+  color: var(--color-4); /* Ámbar */
+  text-shadow: 0 0 15px var(--color-3);
+}
+.cursor-letter:nth-of-type(7n) { /* T */
+  color: var(--color-5); /* Amarillo */
+  text-shadow: 0 0 15px var(--color-4);
+}
+
+/* Animación para flotar hacia arriba y desvanecer */
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.8);
+  }
+}
+
+/* Partículas para fondos */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-3); /* Naranja */
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Animación para partículas flotantes */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Líneas de circuito para fondos */
+.circuit-line {
+  position: absolute;
+  height: 1px;
+  width: 200px;
+  background: linear-gradient(90deg, transparent, var(--color-2), transparent);
+  opacity: 0.15;
+  overflow: hidden;
+}
+
+.circuit-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background: var(--color-2); /* Rojo brillante */
+  filter: blur(3px);
+  animation: circuitPulse 6s infinite linear;
+}
+
+@keyframes circuitPulse {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}
+
+/* Efecto de pulso para botones */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--glow-color);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 60, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 60, 0, 0);
+  }
+}
+
+/* Efecto de fuego para las letras al hacer hover */
+.cursor-letter:hover {
+  animation: flicker 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 15px var(--color-2);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px var(--color-3), 0 0 30px var(--color-4);
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 15px var(--color-2);
+  }
+}

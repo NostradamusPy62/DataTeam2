@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Estilos para el efecto de escritura con cursor parpadeante
+   ========================================================================== */
+
+/* Contenedor del título principal */
+.hero h1 {
+    display: inline-block;
+    margin: 0;
+    /* Quitar los estilos anteriores de animación de escritura si los hubiera */
+    animation: none !important;
+    border-right: none !important;
+    white-space: nowrap;
+  }
+  
+  /* Texto que se está escribiendo */
+  .typing-text {
+    display: inline;
+  }
+  
+  /* Cursor parpadeante */
+  .typing-cursor {
+    display: inline-block;
+    color: #36aba1; /* Color primario */
+    font-weight: bold;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+    border-right: none;
+  }
+  
+  /* Clase para detener el parpadeo del cursor */
+  .typing-cursor-stop {
+    animation: none;
+    opacity: 1;
+  }
+  
+  /* Animación del parpadeo */
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }

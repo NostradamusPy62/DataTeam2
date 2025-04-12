@@ -9,7 +9,7 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/styles3.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
  
 
@@ -25,8 +25,7 @@
     </script>
 </head>
 <body>
-    <!--<canvas id="particleCanvas"></canvas>
-     Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -62,7 +61,6 @@
         <!-- Home Section -->
         <section id="home" class="py-5">
             <div class="container">
-                <canvas id="particleCanvas"></canvas>
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <h1 class="display-4 fw-bold title-glow">Raspbot</h1>
@@ -75,8 +73,7 @@
             <!-- About Section with card -->
         <section id="about" class="py-5 bg-light">
             <div class="container">
-                
-                <h2 class="text-center mb-4 fade-in" id="tituloxd">Sobre el Proyecto</h2>
+                <h2 class="text-center mb-4 fade-in">Sobre el Proyecto</h2>
                 
                 <!-- Tarjeta flip -->
                 <div class="row mb-4">
@@ -117,21 +114,21 @@
                         <div class="row" id="about-row">
                             <div class="col-md-4">
                                 <div class="info-card">
-                                    <i class="fas fa-eye fa-3x mb-3"></i>
+                                    <i class="fas fa-eye fa-3x text-primary mb-3"></i>
                                     <h3>Visión Inteligente</h3>
                                     <p>Equipado con un sistema de visión por computadora que le permite detectar objetos, reconocer rostros y analizar su entorno en tiempo real.</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="info-card">
-                                    <i class="fas fa-microchip fa-3x mb-3"></i>
-                                    <h3>Procesamiento <br> Avanzado</h3>
+                                    <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                                    <h3>Procesamiento Avanzado</h3>
                                     <p>Utiliza una Raspberry Pi 4 como núcleo, garantizando un rendimiento eficiente para el análisis de datos y el control de sus funciones.</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="info-card">
-                                    <i class="fas fa-comments fa-3x mb-3"></i>
+                                    <i class="fas fa-comments fa-3x text-primary mb-3"></i>
                                     <h3>Interacción Natural</h3>
                                     <p>Capaz de mantener conversaciones con el usuario, responder preguntas y ejecutar comandos según el rol asignado.</p>
                                 </div>
@@ -305,7 +302,7 @@
     <!-- Documentation Section -->
     <section id="documentation" class="py-5 bg-light">
             <div class="container">
-            <h3 class="text-center mb-4 fade-in" id="tituloxd">Documentación</h3>
+            <h3 class="text-center mb-4 fade-in">Documentación</h3>
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="accordion" id="docsAccordion">
@@ -689,53 +686,6 @@ class Raspbot:
 function voltearTarjeta() {
     document.getElementById('flipCard').classList.toggle('flipped');
 }
-/* JavaScript Functions */
-/* Para ser implementado con JS */
-
-
-/* Función para voltear tarjeta - Para implementar con JS */
-function voltearTarjeta() {
-  document.getElementById('flipCard').querySelector('.flip-card-inner').style.transform = (
-    document.getElementById('flipCard').querySelector('.flip-card-inner').style.transform === 'rotateY(180deg)' ? 
-    'rotateY(0deg)' : 'rotateY(180deg)'
-  );
-}
-
-/* Activar animaciones al hacer scroll */
-document.addEventListener('DOMContentLoaded', function() {
-  // Detectar elementos cuando entran en el viewport
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  // Observar todos los elementos con clase fade-in
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Observar elementos con clase slide-up
-  document.querySelectorAll('.slide-up').forEach(el => {
-    observer.observe(el);
-    el.addEventListener('animationend', () => {
-      el.classList.remove('slide-up');
-    });
-  });
-
-  // Navbar scroll
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      document.querySelector('.navbar').classList.add('scrolled');
-    } else {
-      document.querySelector('.navbar').classList.remove('scrolled');
-    }
-  });
-});
         </script>
-        <script src="datateamjs/script.js"></script>
-        <script src="datateamjs/scriptLetra.js"></script>
 </body>
 </html>

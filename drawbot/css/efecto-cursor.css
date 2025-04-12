@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Estilos para el efecto de rastro de letras del cursor
+   ========================================================================== */
+
+/* Contenedor para las letras que siguen al cursor */
+.cursor-writing-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  /* Letras individuales que siguen al cursor */
+  .cursor-letter {
+    position: absolute;
+    font-family: 'Orbitron', 'Space Mono', monospace;
+    font-weight: 700;
+    color: #36aba1; /* Color primario */
+    text-shadow: 0 0 15px rgba(54, 171, 161, 0.6);
+    pointer-events: none;
+    user-select: none;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform, opacity;
+  }
+  
+  /* Animación para flotar hacia arriba y desvanecer */
+  @keyframes float-up {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-25px) scale(0.8);
+    }
+  }
+  
+  /* Partículas para fondos */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #36aba1; /* Color primario */
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  /* Animación para partículas flotantes */
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+  
+  /* Líneas de circuito para fondos */
+  .circuit-line {
+    position: absolute;
+    height: 1px;
+    width: 200px;
+    background: linear-gradient(90deg, transparent, #36aba1, transparent);
+    opacity: 0.15;
+    overflow: hidden;
+  }
+  
+  .circuit-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: #36aba1; /* Color primario */
+    filter: blur(3px);
+    animation: circuitPulse 6s infinite linear;
+  }
+  
+  @keyframes circuitPulse {
+    0% {
+      transform: translateX(-30px);
+    }
+    100% {
+      transform: translateX(200px);
+    }
+  }
+  
+  /* Efecto de pulso para botones */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(54, 171, 161, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(54, 171, 161, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(54, 171, 161, 0);
+    }
+  }

@@ -1,0 +1,1383 @@
+/* ==========================================================================
+   CSS para DrawBot - Estilo futurista y tecnológico
+   ========================================================================== */
+
+   :root {
+    /* Paleta de colores principal */
+    --primary: #36aba1;
+    --secondary: #98dcda;
+    --accent1: #1d3a32;
+    --accent2: #e4f1f1;
+    --light: #f6eeee;
+    --dark: #1d3a32;
+    --dark-deep: #0e1d19;
+    --gray: #6c757d;
+    
+    /* Colores adicionales */
+    --shadow-color: rgba(54, 171, 161, 0.3);
+    --shadow-deep: rgba(29, 58, 50, 0.5);
+    --text-shadow: 0 0 15px rgba(152, 220, 218, 0.4);
+    --glow-primary: 0 0 20px rgba(54, 171, 161, 0.6);
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent1));
+    --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--primary));
+    --gradient-dark: linear-gradient(135deg, var(--dark), var(--dark-deep));
+    --gradient-footer: linear-gradient(135deg, var(--dark), #2a5047);
+    
+    /* Transiciones */
+    --transition-default: all 0.3s ease;
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    
+    /* Dimensiones */
+    --border-radius: 8px;
+    --border-radius-lg: 16px;
+    --section-padding: clamp(4rem, 8vw, 8rem);
+    --card-shadow: 0 10px 30px var(--shadow-color), 0 5px 15px rgba(0, 0, 0, 0.05);
+    
+    /* Tipografía */
+    --font-family-main: 'DM Sans', 'Sora', sans-serif;
+    --font-family-heading: 'Orbitron', 'Space Mono', monospace;
+    --font-size-base: clamp(1rem, 1.5vw, 1.125rem);
+    --line-height-base: 1.6;
+}
+
+/* ==========================================================================
+   Reseteo y estilos base
+   ========================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Orbitron:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap');
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--dark);
+}
+
+body {
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--light);
+    background-color: var(--dark-deep);
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(54, 171, 161, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(29, 58, 50, 0.08) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--light);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    letter-spacing: -0.02em;
+    text-shadow: var(--text-shadow);
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    position: relative;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.02em;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition-default);
+    position: relative;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+a:not(.navbar-brand, .btn, .doc-card a, .social-links a)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: var(--transition-default);
+}
+
+a:not(.navbar-brand, .btn, .doc-card a, .social-links a):hover::after {
+    width: 100%;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+section {
+    padding: var(--section-padding) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* ==========================================================================
+   Animación del cursor - Rastro de letras "D R A W B O T"
+   ========================================================================== */
+
+body::after {
+    display: none; /* Se activa con JS, por ahora lo ocultamos */
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    content: '';
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.8); }
+}
+
+.cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px var(--shadow-color);
+    animation: fadeOut 1.5s forwards;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+.navbar {
+    background: rgba(14, 29, 25, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    transition: var(--transition-default);
+    border-bottom: 1px solid rgba(54, 171, 161, 0.1);
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary) 20%, 
+        var(--primary) 80%, 
+        transparent 100%);
+    opacity: 0.6;
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 0;
+    background: rgba(14, 29, 25, 0.95);
+}
+
+.navbar-brand {
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.navbar-brand i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    transition: var(--transition-bounce);
+}
+
+.navbar-brand:hover i {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    color: var(--light);
+    transition: var(--transition-default);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(246, 238, 238, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav {
+    gap: 1rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: var(--light) !important;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    transform: translateX(-100%);
+    transition: var(--transition-default);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    transform: translateX(0);
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: var(--gradient-dark);
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at right top, rgba(54, 171, 161, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at left bottom, rgba(29, 58, 50, 0.15) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.hero .lead {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    margin-bottom: 2rem;
+    max-width: 90%;
+    color: var(--secondary);
+    opacity: 0.9;
+}
+
+.hero img {
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-bounce);
+    transform: perspective(1000px) rotateY(-5deg);
+    border: 1px solid rgba(54, 171, 161, 0.3);
+}
+
+.hero img:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.02);
+    box-shadow: 0 15px 35px var(--shadow-color), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%) rotate(45deg);
+    transition: var(--transition-default);
+    z-index: -1;
+}
+
+.btn:hover::before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--light);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--shadow-deep);
+    background: var(--gradient-primary);
+    background-position: right center;
+}
+
+.btn-outline-primary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: var(--light);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+
+.about {
+    background-color: var(--dark);
+    position: relative;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(54, 171, 161, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(54, 171, 161, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+.feature-item {
+    background: rgba(14, 29, 25, 0.8);
+    border: 1px solid rgba(54, 171, 161, 0.2);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1 1 200px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: var(--transition-default);
+    z-index: -1;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow-deep);
+}
+
+.feature-item:hover::before {
+    opacity: 0.1;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    transition: var(--transition-bounce);
+}
+
+.feature-item:hover i {
+    transform: scale(1.2);
+    color: var(--secondary);
+}
+
+.feature-item h4 {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Steps Section
+   ========================================================================== */
+
+.steps {
+    background-color: var(--dark-deep);
+    position: relative;
+}
+
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at right top, rgba(54, 171, 161, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse at left bottom, rgba(29, 58, 50, 0.12) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 3rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: var(--transition-smooth);
+}
+
+.timeline-item.animate-in.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -2.5rem;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--dark), 0 0 0 6px rgba(54, 171, 161, 0.3), 0 0 20px var(--shadow-color);
+    z-index: 1;
+}
+
+.timeline-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.timeline-item p {
+    margin-bottom: 0;
+    color: var(--light);
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   Documentation Section
+   ========================================================================== */
+
+.docs {
+    background-color: var(--dark);
+    position: relative;
+}
+
+.docs::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(54, 171, 161, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(54, 171, 161, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+}
+
+.doc-card {
+    background: rgba(14, 29, 25, 0.5);
+    border-radius: var(--border-radius);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(54, 171, 161, 0.2);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: var(--transition-default);
+    z-index: -1;
+}
+
+.doc-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+.doc-card:hover::before {
+    opacity: 0.1;
+}
+
+.doc-card i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    transition: var(--transition-bounce);
+}
+
+.doc-card:hover i {
+    transform: scale(1.2);
+    color: var(--secondary);
+}
+
+.doc-card h4 {
+    margin-bottom: 1.5rem;
+}
+
+.doc-card .btn {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   Features Section with 3D Model
+   ========================================================================== */
+
+.model-container {
+    width: 100%;
+    height: 400px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px var(--shadow-deep);
+    border: 1px solid rgba(54, 171, 161, 0.3);
+    position: relative;
+    background: var(--dark-deep);
+}
+
+#container3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loading3d {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-family-heading);
+    color: var(--primary);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.about-card {
+    background: rgba(14, 29, 25, 0.8);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    height: 100%;
+    border: 1px solid rgba(54, 171, 161, 0.2);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--gradient-primary);
+}
+
+.about-card ul {
+    padding-left: 1.2rem;
+    margin-top: 1rem;
+}
+
+.about-card li {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.about-card li::marker {
+    color: var(--primary);
+}
+
+.about-card strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+
+.contact {
+    background-color: var(--dark-deep);
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at right top, rgba(54, 171, 161, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at left bottom, rgba(29, 58, 50, 0.12) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.form-control {
+    background-color: rgba(14, 29, 25, 0.8);
+    border: 1px solid rgba(54, 171, 161, 0.2);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    color: var(--light);
+    transition: var(--transition-default);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px var(--shadow-color);
+    border-color: var(--primary);
+    background-color: rgba(14, 29, 25, 0.95);
+}
+
+.form-control::placeholder {
+    color: rgba(246, 238, 238, 0.5);
+}
+
+.contact-info {
+    background: rgba(14, 29, 25, 0.5);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid rgba(54, 171, 161, 0.2);
+    height: 100%;
+}
+
+.contact-info h4 {
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    width: 30px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+    background: var(--gradient-footer);
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(54, 171, 161, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(29, 58, 50, 0.08) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.footer h5 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer p, .footer a {
+    color: var(--light);
+    opacity: 0.8;
+}
+
+.footer p:hover, .footer a:hover {
+    opacity: 1;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(14, 29, 25, 0.5);
+    border-radius: 50%;
+    color: var(--light);
+    transition: var(--transition-bounce);
+    border: 1px solid rgba(54, 171, 161, 0.2);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: var(--light);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.footer .text-center {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Animaciones adicionales
+   ========================================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para botones y enlaces */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(54, 171, 161, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(54, 171, 161, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(54, 171, 161, 0);
+    }
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: rgba(14, 29, 25, 0.95);
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(54, 171, 161, 0.2);
+    }
+    
+    .nav-link::before {
+        bottom: -5px;
+    }
+    
+    .hero {
+        padding-top: 8rem;
+    }
+
+    .about-card, .contact-info {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    
+    h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .timeline {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -2rem;
+    }
+    
+    .model-container {
+        height: 250px;
+    }
+}
+
+/* ==========================================================================
+   Animación del cursor - Rastro de letras "D R A W B O T"
+   ========================================================================== */
+
+/* El código JavaScript para la animación del cursor se encuentra al final del archivo */
+
+/* Estilos para las letras que siguen al cursor */
+.cursor-trail {
+    position: fixed;
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+    pointer-events: none;
+    z-index: 9999;
+    user-select: none;
+    animation: fadeTrail 1.5s forwards;
+}
+
+@keyframes fadeTrail {
+    0% { 
+        opacity: 1; 
+        transform: translate(0, 0) scale(1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translate(0, -20px) scale(0.8); 
+    }
+}
+
+/* ==========================================================================
+   Efectos de fondo dinámico
+   ========================================================================== */
+
+/* Partículas para secciones */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.hero::after,
+.about::after,
+.steps::after,
+.docs::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.15;
+    animation: float 15s infinite ease-in-out;
+}
+
+.hero::after {
+    top: 70%;
+    left: 80%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 20s;
+    animation-delay: 1s;
+}
+
+.about::after {
+    top: 20%;
+    left: 70%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 18s;
+    animation-delay: 2s;
+}
+
+.steps::after {
+    top: 80%;
+    left: 20%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 22s;
+    animation-delay: 3s;
+}
+
+/* Circuito gráfico para fondo */
+.docs::after {
+    top: 60%;
+    left: 85%;
+    width: 35px;
+    height: 35px;
+    animation-duration: 25s;
+    animation-delay: 4s;
+}
+
+.circuit-line {
+    position: absolute;
+    height: 1px;
+    width: 200px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.15;
+    overflow: hidden;
+}
+
+.circuit-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: var(--primary);
+    filter: blur(3px);
+    animation: circuitPulse 6s infinite linear;
+}
+
+@keyframes circuitPulse {
+    0% {
+        transform: translateX(-30px);
+    }
+    100% {
+        transform: translateX(200px);
+    }
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+    opacity: 0.1;
+}
+
+.about::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+    opacity: 0.1;
+}
+
+/* Efecto de brillo para Cards */
+.feature-item::after,
+.doc-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(54, 171, 161, 0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.feature-item:hover::after,
+.doc-card:hover::after {
+    opacity: 1;
+}
+
+/* Animación para el Timeline */
+@keyframes timeline-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(54, 171, 161, 0.8);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(54, 171, 161, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(54, 171, 161, 0);
+    }
+}
+
+.timeline-item::before {
+    animation: timeline-pulse 3s infinite;
+}
+
+/* Efectos de Hover refinados */
+.navbar-brand,
+.nav-link,
+.btn,
+.feature-item i,
+.doc-card i,
+.social-links a {
+    will-change: transform;
+}
+
+.feature-item:hover,
+.doc-card:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+/* ==========================================================================
+   Rastro de letras D R A W B O T para el cursor
+   ========================================================================== */
+
+/* Sin cursor personalizado - solo el rastro de letras */
+
+/* ==========================================================================
+   Efectos visuales avanzados
+   ========================================================================== */
+
+/* Destello sutil para logo */
+@keyframes logo-glow {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(54, 171, 161, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(54, 171, 161, 0.9));
+    }
+    100% {
+        filter: drop-shadow(0 0 2px rgba(54, 171, 161, 0.6));
+    }
+}
+
+.navbar-brand i {
+    animation: logo-glow 5s infinite ease-in-out;
+}
+
+/* Efecto de teclado futurista para el título */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.hero h1 {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    border-right: 3px solid var(--primary);
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary) }
+}
+
+/* Gradientes animados */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.btn-primary {
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+}
+
+/* Efecto de neón para títulos */
+h2::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    text-shadow: 0 0 15px var(--primary);
+    opacity: 0.5;
+    filter: blur(8px);
+}
+
+/* Animación para íconos de características */
+@keyframes rotate-icon {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.feature-item:hover i {
+    animation: rotate-icon 1.5s ease-in-out;
+}
+
+/* ==========================================================================
+   Media Query adicionales para mayor responsividad
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    .hero {
+        text-align: center;
+    }
+    
+    .hero .lead {
+        max-width: 100%;
+    }
+    
+    .feature-item, .doc-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 2rem;
+    }
+    
+    .timeline-item::before {
+        width: 15px;
+        height: 15px;
+        left: -1.75rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+    
+    .footer ul {
+        text-align: center;
+        padding-left: 0;
+        list-style: none;
+    }
+}
+
+/* Optimizaciones para pantallas grandes */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .model-container {
+        height: 500px;
+    }
+}
+
+/*
+
+*/
+padding-left: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: calc(var(--section-padding) * 0.7) 0;
+    }
+    
+    .hero {
+        padding-top: 6rem;
+    }
+    
+    .hero img {
+        margin-top: 2rem;
+    }
+    
+    .feature-item {
+        flex: 1 1 100%;
+    }
+    
+    .doc-card {
+        margin-bottom: 2rem;
+    }
+    
+    .model-container {
+        height: 300px;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    h2 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    
+    .btn {
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .timeline {
