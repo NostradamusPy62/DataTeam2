@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SavePlug – Enchufe Temporizador Inteligente</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS (mantén tus rutas locales si ya las usas) -->
+  <link rel="stylesheet" href="css/styles4.css">
+  <link rel="stylesheet" href="css/efecto-cursor.css">
+  <link rel="stylesheet" href="css/text.css">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Three.js (opcional) -->
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-plug"></i> SavePlug</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre el Proyecto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#steps">Pasos de Armado</a></li>
+          <li class="nav-item"><a class="nav-link" href="#docs">Documentación</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1>SavePlug</h1>
+          <p class="lead">Enchufe temporizador inteligente con Arduino: seguridad, ahorro y control.</p>
+          <a href="#about" class="btn btn-primary">Cómo funciona</a>
+          <br><br>
+          <a href="#docs" class="btn btn-outline-primary">Código & Manual</a>
+        </div>
+        <div class="col-lg-6">
+          <!-- Portada del proyecto -->
+          <img src="../img/portadas/saveplug.png" alt="SavePlug - Enchufe Temporizador Inteligente" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>Sobre el Proyecto</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <p>
+            <strong>SavePlug</strong> es un enchufe temporizador inteligente basado en Arduino que energiza cualquier
+            carga (cargador, lámpara, ventilador, etc.) solo por el tiempo configurado. Integra LCD 16x2, dos pulsadores,
+            control por relé y buenas prácticas de seguridad (fusible, caja, bornes), ayudando a evitar accidentes y reducir consumo.
+          </p>
+          <p>
+            La interfaz tipo “reloj” permite editar <em>horas, minutos y segundos</em> con pulsaciones cortas (cambio de campo) y
+            pulsaciones largas (iniciar/pausar/cancelar). El relé se intercala en la <strong>fase</strong> del prolongador (COM→NO),
+            cortando automáticamente la energía al finalizar la cuenta regresiva.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="features">
+            <div class="feature-item">
+              <i class="fas fa-shield-alt"></i>
+              <h4>Seguro</h4>
+              <p>Fusible en fase, caja aislante, bornes atornillables y MOV opcional contra picos.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-stopwatch"></i>
+              <h4>Temporización H:M:S</h4>
+              <p>Edición por campo y cuenta regresiva visible en LCD.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-microchip"></i>
+              <h4>Arduino + Relé</h4>
+              <p>Dos canales (D9/D10) con LEDs de estado (D7/D8) y control fiable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section id="steps" class="steps">
+    <div class="container">
+      <h2>Pasos de Armado</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>1. Componentes</h4>
+          <ul>
+            <li>Arduino Uno + cables jumpers</li>
+            <li>Módulo relé 1–2 canales (10A o superior)</li>
+            <li>Pantalla LCD 16x2 I2C (0x27/0x3F)</li>
+            <li>2 pulsadores y 2 LEDs con resistencias</li>
+            <li>Fusible y portafusible en serie con la fase</li>
+            <li>Caja plástica y bornes atornillables</li>
+            <li>Prolongador (macho + hembra) y cableado</li>
+            <li>MOV (supresor) y snubber RC (opcional)</li>
+            <li>Fuente 5V para Arduino (USB)</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h4>2. Ensamblaje Mecánico</h4>
+          <ul>
+            <li>Fija Arduino y relé en una caja; usa prensaestopas para entradas/salidas.</li>
+            <li>Separa baja tensión (control) de la parte AC (potencia).</li>
+            <li>Coloca bornes para fase, neutro y tierra; añade portafusible accesible.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h4>3. Conexiones Eléctricas</h4>
+          <ul>
+            <li><strong>Control:</strong> D2 (PLUS), D3 (MINUS), D7/D8 (LEDs), D9/D10 (IN1/IN2). I2C: A4 (SDA), A5 (SCL).</li>
+            <li><strong>Relé:</strong> JD-VCC=VCC si aplica. Arduino 5V→VCC, GND→GND.</li>
+            <li><strong>Potencia:</strong> Fase de entrada (muro) → <b>COM</b>; salida hacia hembra → <b>NO</b>. Neutro directo.</li>
+            <li>Añade <b>fusible</b> en serie con la fase antes del COM. MOV entre fase y neutro (opcional).</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h4>4. Programación & Pruebas</h4>
+          <ul>
+            <li>Compila y carga el sketch de SavePlug (LCD + UI H:M:S).</li>
+            <li>Modo test: interpreta unidades como segundos para ensayos rápidos.</li>
+            <li>Prueba primero con cargas pequeñas (foco LED/cargador).</li>
+            <li>Verifica clic del relé, LEDs y cuenta regresiva en LCD.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentación -->
+  <section id="docs" class="docs">
+    <div class="container">
+      <h2>Documentación</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="doc-card">
+            <i class="fas fa-file-code"></i>
+            <h4>Código Fuente (Arduino)</h4>
+            <a href="utils/saveplug_code.ino" class="btn btn-outline-primary">Descargar</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="doc-card">
+            <i class="fas fa-book"></i>
+            <h4>Manual de Uso</h4>
+            <a href="utils/ManualSavePlug.pdf" class="btn btn-outline-primary">Ver PDF</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="doc-card">
+            <i class="fas fa-tools"></i>
+            <h4>Guía de Montaje</h4>
+            <a href="https://www.youtube.com/watch?v=KsZn5lQo1DY" class="btn btn-outline-primary">Ver Guía</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Modelo (opcional 3D contenedor vacío) -->
+  <div class="row">
+    <section id="features" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4 fade-in">Características</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-7 col-md-12 order-lg-1 order-md-2 order-2 mb-4">
+            <div class="model-container">
+              <div id="container3d"><!-- Efectos/3D opcionales --></div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-12 order-lg-2 order-md-1 order-1">
+            <div class="about-card">
+              <h3 class="mb-3">Arquitectura de SavePlug</h3>
+              <p>
+                Interfaz H:M:S editable por campo con dos pulsadores. Relés controlados por
+                Arduino y LCD I2C para estado/tiempo restante. Separación física entre control y potencia.
+              </p>
+              <ul>
+                <li><strong>Programación:</strong> Arduino IDE, start/pause/resume/reset.</li>
+                <li><strong>Seguridad:</strong> fusible, caja, bornes; snubber/MOV opcional.</li>
+                <li><strong>Escalable:</strong> 1 o 2 canales; posible sensor de corriente y RTC.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>DataTeam</h5>
+          <p>Seguridad y automatización eléctrica</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Proyectos</h5>
+          <ul class="list-unstyled">
+            <li><a href="saveplug.html">SavePlug</a></li>
+            <li><a href="../raspbot/raspbot.html">RaspBot</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Síguenos</h5>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="mb-0">&copy; 2025, DataTeam. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Animaciones timeline -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      timelineItems.forEach(item => item.classList.add('animate-in'));
+      function inView(el){
+        const r = el.getBoundingClientRect();
+        return r.top>=0 && r.left>=0 && r.bottom <= (innerHeight||document.documentElement.clientHeight) && r.right <= (innerWidth||document.documentElement.clientWidth);
+      }
+      function onScroll(){ timelineItems.forEach(i=>{ if(inView(i)) i.classList.add('visible'); }); }
+      onScroll(); window.addEventListener('scroll', onScroll);
+    });
+  </script>
+
+  <!-- (Opcional) JS para efectos/3D -->
+  <script type="module" src="js/saveplug3d.js"></script>
+
+  <!-- Efecto cursor “SAVEPLUG” -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const letters = ['S','A','V','E','P','L','U','G'];
+      let i = 0, last = 0;
+      const cont = document.createElement('div');
+      cont.className = 'cursor-writing-effect';
+      document.body.appendChild(cont);
+
+      document.addEventListener('mousemove', e => {
+        const now = Date.now();
+        if (now - last > 150) {
+          createLetter(e.clientX, e.clientY, letters[i]);
+          i = (i+1)%letters.length; last = now;
+        }
+      });
+
+      function createLetter(x,y,ch){
+        const el = document.createElement('div');
+        el.className = 'cursor-letter';
+        el.textContent = ch;
+        el.style.left = x+'px';
+        el.style.top  = y+'px';
+        const size = 18 + Math.random()*10;
+        const rot = (Math.random()-0.5)*30;
+        const dx = (Math.random()-0.5)*20;
+        const dy = (Math.random()-0.5)*20;
+        el.style.fontSize = size+'px';
+        el.style.transform = `translate(${dx}px, ${dy}px) rotate(${rot}deg)`;
+        cont.appendChild(el);
+        setTimeout(()=>{ if(el.parentNode===cont){ el.style.opacity='0'; el.style.transform=`translate(${dx}px, ${dy-20}px) rotate(${rot}deg) scale(.8)`; setTimeout(()=>{ el.parentNode===cont && cont.removeChild(el); },300);} },1200);
+      }
+
+      // Navbar on scroll + animaciones
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
+
+        const els = document.querySelectorAll('.feature-item, .timeline-item, .doc-card, h2, .fade-in');
+        els.forEach(item=>{
+          const r=item.getBoundingClientRect();
+          const v = r.top>=0 && r.left>=0 && r.bottom<=(innerHeight||document.documentElement.clientHeight) && r.right<=(innerWidth||document.documentElement.clientWidth);
+          if(v){ item.classList.add('visible'); item.style.opacity='1'; item.style.transform='translateY(0) translateX(0)'; }
+        });
+      });
+
+      document.querySelectorAll('.btn-primary').forEach(btn=>{
+        btn.addEventListener('mouseenter', ()=> btn.style.animation='pulse 1.5s infinite');
+        btn.addEventListener('mouseleave', ()=> btn.style.animation='none');
+      });
+
+      document.querySelectorAll('h2').forEach(h=> h.setAttribute('data-text', h.textContent));
+
+      // Fondo decorativo
+      (function deco(){
+        document.querySelectorAll('section').forEach(section=>{
+          const lines = Math.floor(Math.random()*3)+1;
+          for(let i=0;i<lines;i++){
+            const line = document.createElement('div');
+            line.className='circuit-line';
+            line.style.top= (Math.random()*100)+'%';
+            line.style.left=(Math.random()*80)+'%';
+            line.style.transform=`rotate(${Math.random()*360}deg)`;
+            line.style.animationDelay=(Math.random()*5)+'s';
+            section.appendChild(line);
+          }
+          const particles = Math.floor(Math.random()*5)+3;
+          for(let i=0;i<particles;i++){
+            const p = document.createElement('div');
+            p.className='particle';
+            const size = Math.random()*10+5;
+            p.style.width=size+'px'; p.style.height=size+'px';
+            p.style.top=(Math.random()*100)+'%'; p.style.left=(Math.random()*100)+'%';
+            p.style.opacity=Math.random()*0.2;
+            p.style.animation=`float ${Math.random()*10+10}s infinite ease-in-out`;
+            p.style.animationDelay=(Math.random()*5)+'s';
+            section.appendChild(p);
+          }
+        });
+      })();
+    });
+  </script>
+
+  <!-- Otros scripts -->
+  <script src="js/text.js"></script>
+</body>
+</html>
